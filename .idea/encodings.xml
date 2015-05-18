@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/damianin/babyplanner/DefaultCallback.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/damianin/babyplanner/dialogs/CustomAlertDialog.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/damianin/babyplanner/dialogs/ForgotPassword.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/damianin/babyplanner/dialogs/SetBirthdaySignUp.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/damianin/babyplanner/dialogs/WrongPasswordLogin.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/custom_dialog_button.xml" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/custom_dialog_button_default.xml" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/custom_dialog_button_focused.xml" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/custom_dialog_button_pressed.xml" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_custom_alert.xml" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_forgot_password.xml" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_set_birthday.xml" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_wrong_password_login.xml" charset="windows-1252" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
