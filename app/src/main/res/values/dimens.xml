@@ -11,5 +11,13 @@
     <dimen name="alert_dialog_title_text_size">20sp</dimen>
     <dimen name="alert_dialog_message_text_size">15sp</dimen>
     <dimen name="margin_bottom_dialog_box_title">15dp</dimen>
+    <dimen name="message_title">30sp</dimen>
+    <dimen name="thumbnail_height">100dp</dimen>
+    <dimen name="thumbnail_width">100dp</dimen>
+    <dimen name="button_width">150dp</dimen>
+    <dimen name="button_height">40dp</dimen>
+    <dimen name="margin_top_button">20dp</dimen>
+
+    <dimen name="default_button_small_text_size">15sp</dimen>
 
 </resources>

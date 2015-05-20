@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
     </style>
     <style name="LoginButton">
@@ -26,4 +26,28 @@
         <item name="android:paddingBottom">@dimen/default_padding</item>
     </style>
 
+    <!-- style za sexy status -->
+    <style name="SexyStatus">
+
+        <item name="android:paddingTop">@dimen/default_padding</item>
+        <item name="android:paddingLeft">@dimen/default_padding</item>
+        <item name="android:paddingRight">@dimen/default_padding</item>
+        <item name="android:textColor">@color/second_accent_color</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="DefaultButton">
+        <item name="android:textSize">@dimen/default_button_text_size</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:background">@drawable/button_custom</item>
+    </style>
+
+    <style name="DefaultButton.SmallText">
+        <item name="android:textSize">@dimen/default_button_small_text_size</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:background">@drawable/button_custom</item>
+    </style>
+
 </resources>
+

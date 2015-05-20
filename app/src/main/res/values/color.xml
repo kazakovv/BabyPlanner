@@ -5,6 +5,13 @@
     <color name="selection_buttons_lists">#F8BBD0</color>
     <color name="dialog_box_background_color">#DADADC</color>
     <color name="color_black">#000000</color>
+    <color name="title_message_female">#F8BBD0</color>
+    <color name="title_message_male">#616161</color>
 
+    <color name="button_default">#E91E63</color>
+    <color name="button_pressed">#AD1457</color>
+    <color name="button_focused">#C2185B</color>
+
+    <color name="second_accent_color">#616161</color>
 
 </resources>

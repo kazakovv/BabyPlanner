@@ -16,7 +16,7 @@ import android.widget.DatePicker;
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
 import com.damianin.babyplanner.R;
-import com.damianin.babyplanner.SignUpActivity;
+import com.damianin.babyplanner.UserInterfaces.SignUpActivity;
 
 
 import java.util.Calendar;

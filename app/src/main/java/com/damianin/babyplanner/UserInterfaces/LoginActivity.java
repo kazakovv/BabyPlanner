@@ -1,11 +1,8 @@
-package com.damianin.babyplanner;
+package com.damianin.babyplanner.UserInterfaces;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +11,10 @@ import android.widget.TextView;
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
 import com.backendless.exceptions.BackendlessFault;
+import com.damianin.babyplanner.DefaultCallback;
+import com.damianin.babyplanner.Main;
+import com.damianin.babyplanner.R;
+import com.damianin.babyplanner.Statics;
 import com.damianin.babyplanner.dialogs.CustomAlertDialog;
 import com.damianin.babyplanner.dialogs.WrongPasswordLogin;
 

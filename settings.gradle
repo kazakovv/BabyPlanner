@@ -1,1 +1,1 @@
-include ':app', ':backendless'
+include ':app', ':backendless', ':picasso-2.5.2'

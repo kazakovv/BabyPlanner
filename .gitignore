@@ -5,4 +5,4 @@
 .DS_Store
 /build
 /captures
-/app/main/java/com/damianin/babyplanner/BabyPlannerApplication.java
+/app/main/java/com/damianin/babyplanner/Keys.java

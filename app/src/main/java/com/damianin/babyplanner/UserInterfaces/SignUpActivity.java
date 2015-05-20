@@ -1,4 +1,4 @@
-package com.damianin.babyplanner;
+package com.damianin.babyplanner.UserInterfaces;
 
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
@@ -14,6 +14,10 @@ import com.backendless.BackendlessCollection;
 import com.backendless.BackendlessUser;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.BackendlessDataQuery;
+import com.damianin.babyplanner.DefaultCallback;
+import com.damianin.babyplanner.Main;
+import com.damianin.babyplanner.R;
+import com.damianin.babyplanner.Statics;
 import com.damianin.babyplanner.dialogs.CustomAlertDialog;
 import com.damianin.babyplanner.dialogs.SetBirthdaySignUp;
 
