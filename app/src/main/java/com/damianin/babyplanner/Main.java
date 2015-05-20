@@ -35,17 +35,17 @@ public class Main extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         mCurrentUser = Backendless.UserService.CurrentUser();
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        loveDaysCards = (RecyclerView) findViewById(R.id.cardList);
-        loveDaysCards.setHasFixedSize(true);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        loveDaysCards.setLayoutManager(llm);
 
         if (mCurrentUser == null) {
             navigateToLogin();
+        } else {
+            toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+
+
+
+            loadCardList(mCurrentUser);
         }
     }
 
@@ -101,6 +101,12 @@ public class Main extends ActionBarActivity {
     }
 
     protected void loadCardList(BackendlessUser currentUser) {
+
+        loveDaysCards = (RecyclerView) findViewById(R.id.cardList);
+        loveDaysCards.setHasFixedSize(true);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        loveDaysCards.setLayoutManager(llm);
 
         cardsToDisplay = new ArrayList<BackendlessUser>();
         cardsToDisplay.add(currentUser);
