@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.backendless.BackendlessUser;
 import com.damianin.babyplanner.Helper.CycleStage;
 import com.damianin.babyplanner.Helper.RoundedTransformation;
+import com.damianin.babyplanner.Main;
 import com.damianin.babyplanner.R;
 import com.damianin.babyplanner.Statics;
 import com.damianin.babyplanner.UserInterfaces.ActivityChangeSexyStatus;
@@ -27,16 +28,15 @@ public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.Contac
     private List<BackendlessUser> cardsToDisplay;
     private BackendlessUser userToDisplay; //tova e potrebiteliat ot cardsToDisplay, za koito sazdavame tekushtata karta
     private Context mContext;
-    private Activity mainActivity;
     private static int SEX_FEMALE = 0;
     private static int SEX_MALE = 1;
     private static int CURRENT_USER_MALE = 2;
     private static int CURRENT_USER_FEMALE = 3;
+    private static int REQUEST_FOR_ACTIVITY_CODE = 5;
 
-    public AdapterLoveDays(List<BackendlessUser> cardsToDisplay, Context mContext, Activity mainActivity) {
+    public AdapterLoveDays(List<BackendlessUser> cardsToDisplay, Context mContext) {
         this.cardsToDisplay = cardsToDisplay;
         this.mContext = mContext;
-        this.mainActivity = mainActivity;
 
     }
 
@@ -100,8 +100,11 @@ public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.Contac
             contactViewHolder.vSexyStatus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //TODO change Main
                     Intent intent = new Intent(mContext, ActivityChangeSexyStatus.class);
-                    mainActivity.startActivityForResult(intent, Statics.UPDATE_STATUS);
+                    ((Activity) mContext).startActivityForResult(intent, REQUEST_FOR_ACTIVITY_CODE);
+                    //Intent intent = new Intent(context, TargetActivity.class);
+                    //mainActivity.startActivityForResult(intent, Statics.UPDATE_STATUS);
                 }
             });
         //on Click listener za private days. Pak samo za tekushtia potrebitel

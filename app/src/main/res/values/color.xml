@@ -13,5 +13,6 @@
     <color name="button_focused">#C2185B</color>
 
     <color name="second_accent_color">#616161</color>
+    <color name="navigation_drawer_group_title">#DADADC</color>
 
 </resources>

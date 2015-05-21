@@ -57,7 +57,28 @@
     <string name="sexy_status_default">Tap to change your sexy status</string>
     <string name="title_activity_sexy_calendar">SexyCalendar</string>
     <string name="show_private_days_dialog_button">Private Days</string>
+    <string name="logout_menu_title">Logout</string>
 
+    <!-- NAVIGATION DRAWER -->
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="menu_edit_partner">Partners</string>
+    <string name="account_settings_title">Account Settings</string>
+    <string name="logout_message">Logging out</string>
+    <string name="logout_error">Can\'t log out due to a server error</string>
+
+    <string-array name="navigation_drawer_partners_options">
+        <item>Search for Partners</item>
+        <item>Pending Partner Requests</item>
+        <item>Existing Partners</item>
+    </string-array>
+    <string-array name="edit_profile_options">
+        <item>Change Guy or Girl</item>
+        <item>Change date of birth</item>
+        <item>Change password</item>
+        <item>Change profile picture</item>
+        <item>Change your username</item>
+    </string-array>
 
     <string-array name="sex_options">
         <item>Male</item>
