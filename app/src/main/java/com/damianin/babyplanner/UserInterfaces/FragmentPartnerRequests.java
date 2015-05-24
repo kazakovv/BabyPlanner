@@ -19,9 +19,9 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.BackendlessDataQuery;
 import com.backendless.persistence.QueryOptions;
-import com.victor.sexytalk.sexytalk.Adaptors.AdapterPartnerRequests;
-import com.victor.sexytalk.sexytalk.BackendlessClasses.PartnersAddRequest;
-import com.victor.sexytalk.sexytalk.R;
+import com.damianin.babyplanner.Adaptors.AdapterPartnerRequests;
+import com.damianin.babyplanner.BackendlessClasses.PartnersAddRequest;
+import com.damianin.babyplanner.R;
 
 import java.util.List;
 

@@ -97,6 +97,25 @@
     <string name="dialog_partner_request_already_sent_to_user_message">You have already sent a love request to</string>
     <string name="partner_request_sent_toast">Your partner request was sent</string>
     <string name="partner_request_not_sent_toast">Your partner request was not sent. Please try again.</string>
+    <string name="new_partner_added_successfully">Partner was added</string>
+    <string name="dialog_menu_title">Are you a guy or a girl?</string>
+    <string name="guy">Guy</string>
+    <string name="girl">Girl</string>
+    <string name="saving_preferences_message">Saving your preferences...</string>
+    <string name="selection_saved_successfully">Your selection was saved</string>
+    <string name="selection_not_saved">Your selection was not saved due to a server problem </string>
+    <string name="messaged_successfully_saved_to_server">Your selection was saved</string>
+    <string name="messaged_unsuccessfully_saved_to_server">There was a server error and your selection was not saved. Please try again later.</string>
+    <string name="change_password_dialog_title">Change your password</string>
+    <string name="enter_new_password_message">Enter new password</string>
+    <string name="confirm_password_message">Confirm password</string>
+    <string name="password_empty">Your password can\'t be empty</string>
+    <string name="passwords_dont_match">The passwords you entered don\'t match</string>
+    <string name="password_changed_toast">Your password was changed</string>
+    <string name="password_not_changed_error_toast">Your password was not changed due to a server error</string>
+    <string name="dialog_change_username_title">Change your username</string>
+    <string name="username_cannot_be_empty">The username cannot be empty</string>
+    <string name="toast_username_updated">Your username was updated</string>
 
     <!-- NAVIGATION DRAWER -->
     <string name="drawer_open">Open</string>

@@ -19,6 +19,7 @@ import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.messaging.MessageStatus;
+import com.damianin.babyplanner.BackendlessClasses.PartnerDeleteRequest;
 import com.damianin.babyplanner.Helper.RoundedTransformation;
 import com.damianin.babyplanner.dialogs.BreakUp;
 import com.squareup.picasso.Picasso;
