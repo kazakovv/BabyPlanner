@@ -30,6 +30,8 @@ import com.damianin.babyplanner.Adaptors.AdapterNavigationDrawer;
 import com.damianin.babyplanner.Helper.NavigationDrawerItems;
 import com.damianin.babyplanner.Helper.RoundedTransformation;
 import com.damianin.babyplanner.UserInterfaces.LoginActivity;
+import com.damianin.babyplanner.UserInterfaces.ManagePartnersMain;
+import com.damianin.babyplanner.dialogs.ChangeProfilePic;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -50,6 +52,7 @@ public class Main extends ActionBarActivity {
     protected ListView mDrawerList;
     private LinearLayout mDrawerLinear;
     private Button logoutButtonNavigationDrawer;
+    protected ChangeProfilePic changeProfilePic;//tova se izpolzva za onactivity result ako smeniame profile pic
 
 
     @Override

@@ -58,6 +58,45 @@
     <string name="title_activity_sexy_calendar">SexyCalendar</string>
     <string name="show_private_days_dialog_button">Private Days</string>
     <string name="logout_menu_title">Logout</string>
+    <string name="menu_camera_alertdialog_title">Change your profile picture</string>
+    <string name="camera_choice_take_pic">Take a picture</string>
+    <string name="camera_choice_choose_pic">Choose a picture from your gallery</string>
+    <string name="error_loading_thumbnail">Error loading the thumbnail image</string>
+    <string name="error_selected_file">There was a problem with the selected file.</string>
+    <string name="uploading_file_message">Uploading file...</string>
+    <string name="profile_pic_uploaded_successfully">Your profile picture was uploaded</string>
+    <string name="error_associating_profile_pic_with_profile">Error associating the picture with your profile</string>
+    <string name="error_uploading_profile_pic">Error uploading your profile picture</string>
+    <string name="error_message_toast_external_storage">There was a problem accessing your device\'s external storage</string>
+    <string name="general_error_message">Sorry, there was an error</string>
+    <string name="search_partners_tab">Search</string>
+    <string name="requests_partners_tab">Requests</string>
+    <string name="existing_partners_tab">Partners</string>
+    <string name="toast_update_partners_no_partners_found">You have no partners</string>
+    <string name="no_partners_found">No partners were found</string>
+    <string name="no_pending_partner_requests_message">You have no pending partner requests. Swipe down to refresh.</string>
+    <string name="hint_search_partner_by_email">Search partner by email</string>
+    <string name="empty_search_field_message">Please enter a valid email address</string>
+    <string name="dialog_invite_partner_join_lovespot_title">Invite your loved one to join LoveSpot</string>
+    <string name="dialog_message_partner_not_joined_lovespot">You partner is not using LoveSpot. Do you want to send an invitation by email?</string>
+    <string name="email_invite_to_lovespot_subject">Join me in LoveSpot</string>
+    <string name="email_invite_to_lovespot_body">Hi honey, \n \n
+        Join me in LoveSpot! Just download LoveSpot from the Google Play or click on the link below.
+        I am waiting for you... :)
+         </string>
+    <string name="toast_no_email_clients_installed">"There are no email clients installed."</string>
+    <string name="dialog_box_deleting_partner">Are you breaking up?</string>
+    <string name="dialog_delete_partner_yes_button">Yes</string>
+    <string name="dialog_delete_partner_general_message">Are you sure you want to break up?</string>
+    <string name="dialog_delete_partner_no_button">No</string>
+    <string name="dialog_delete_partner_confirmation">Are you sure you want to beak up with</string>
+    <string name="existing_partner_deleted">Partner was deleted</string>
+    <string name="toast_cannot_add_yourself_as_partner">You can\'t add yourself as partner</string>
+    <string name="user_already_partner">is already your partner</string>
+    <string name="dialog_partner_request_already_sent_title">Waiting for love</string>
+    <string name="dialog_partner_request_already_sent_to_user_message">You have already sent a love request to</string>
+    <string name="partner_request_sent_toast">Your partner request was sent</string>
+    <string name="partner_request_not_sent_toast">Your partner request was not sent. Please try again.</string>
 
     <!-- NAVIGATION DRAWER -->
     <string name="drawer_open">Open</string>

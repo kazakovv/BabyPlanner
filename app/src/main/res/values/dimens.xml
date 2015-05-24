@@ -17,8 +17,14 @@
     <dimen name="button_width">150dp</dimen>
     <dimen name="button_height">40dp</dimen>
     <dimen name="margin_top_button">20dp</dimen>
-
+    <dimen name="search_partners_margin_top">41dp</dimen>
+    <dimen name="round_button_height">45dp</dimen>
+    <dimen name="round_button_width">45dp</dimen>
+    <dimen name="round_button_radius">10dp</dimen>
     <dimen name="default_button_small_text_size">15sp</dimen>
+    <dimen name="list_item_hight">100dp</dimen>
+    <dimen name="list_item_width">100dp</dimen>
+    <dimen name="message_list_vertical_margin">8dp</dimen>
 
     <!-- NAVIGATION DRAWER -->
     <dimen name="drawer_header_text_size">16sp</dimen>
