@@ -71,10 +71,8 @@ public class Main extends ActionBarActivity {
         } else {
             toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
-
-
-
             loadCardList(mCurrentUser);
+            setUpDrawer();
         }
     }
 

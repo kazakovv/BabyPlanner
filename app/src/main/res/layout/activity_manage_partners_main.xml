@@ -12,6 +12,7 @@
         android:id="@+id/materialTabHost"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+
         app:accentColor="@color/tab_accent_color"
         app:primaryColor="@color/tabs_color"
         app:textColor="@color/color_white" />

@@ -1,1 +1,1 @@
-include ':app', ':backendless', ':picasso-2.5.2', ':commons-io-2.4', ':MaterialTabsModule'
+include ':app', ':backendless', ':picasso-2.5.2', ':commons-io-2.4'
