@@ -9,7 +9,6 @@ public class Statics {
     public static final String KEY_USERNAME = "userName";
     public static final String KEY_RECEPIENT_IDS = "recepientIDs";
     public static final String KEY_RECEPIENT_EMAILS = "recepientsEmails";
-    public static final String KEY_USERNAME_SENDER = "senderUsername";
 
     public static final String KEY_PARTNERS = "partners";
 
@@ -17,8 +16,6 @@ public class Statics {
 
 
     public static final String TYPE_IMAGE_MESSAGE = "image";
-    public static final String TYPE_TEXTMESSAGE = "textMessage";
-    public static final String TYPE_KISS = "messageKiss";
     public static final String TYPE_CALENDAR_UPDATE = "calendarUpdate";
     public static final String TYPE_PARTNER_REQUEST ="partnerRequest";
 
@@ -26,8 +23,6 @@ public class Statics {
     public static final String SEX_FEMALE = "Female";
 
     public static final String KEY_DATE_OF_BIRTH = "dateOfBirth";
-    public static final String KEY_LOVE_MESSAGE = "loveMessage";
-    public static final String KEY_NUMBER_OF_KISSES = "kissNumber";
 
     public static final String KEY_URL = "urlAddress";
 
@@ -58,17 +53,13 @@ public class Statics {
     public static final String KEY_PARTNERS_SELECT_PENDING_REQUESTS = "selectPendingRequestsTab";
     public static final String KEY_PARTNERS_SELECT_EXISTING_PARTNERS = "selectExistingPartnersTab";
 
-    public static final String GOOGLE_PROJECT_ID = "473995671207";
 
     public static final String KEY_DEVICE_ID = "deviceId";
     public static final String KEY_MESSAGE_ID = "messageId";
 
     public static final String KEY_PROFILE_PIC_PATH = "profilePicPath";
 
-    public static final int MESSAGE_TIME_TO_DISPLAY = 24; //24 chasa
-    public static final int MESSAGE_TIME_BEFORE_NEXT_LOVE_MESSAGE = 24;
     public static final int SHORT_SIDE_TARGET_THUMBNAIL = 100;
-    public static final int SHORT_SIDE_TARGET_PIC = 500;
 
     public static final String KEY_SET_STATUS = "setStatus";
 
@@ -86,8 +77,7 @@ public class Statics {
 
 
     //construct message for dialog box one love message per day
-    public static final int DIALOG_BOX_ONE_LOVE_MESSAGE_TITLE = 500555;
-    public static final int DIALOG_BOX_ONE_LOVE_MESSAGE_MESSAGE_BODY = 600555;
+
     //onactivity result codes
     public static final int MENSTRUAL_CALENDAR_DIALOG = 11;
     public static final int UPDATE_STATUS = 22;
@@ -96,7 +86,6 @@ public class Statics {
     public static final String KEY_REFRESH_FRAGMENT_LOVE_BOX = "fragmentLoveBox";
 
     //max size na pic
-    public static final int FILE_SIZE_LIMIT = 1024*1024*10;
 
     //custom alert dialog
     public static final String ALERTDIALOG_TITLE = "titleAD";
@@ -109,10 +98,7 @@ public class Statics {
     //izpolzva se za reference dali ima chakashti zaiavki za partniori. Ako e true pokazvame buton na main t
     public static Boolean pendingPartnerRequest = false;
 
-    //display one message per day dialog warning
-    public static String displayOneMessagePerDayDialogBox="displayOneMessageDialog";
 
-    public static String DATE_CREATED_LOVE_MESSAGE = "loveMessageDateCreated";
 
     //flags push receiver
     public static int FLAG_CALENDAR_UPDATE = 1001;

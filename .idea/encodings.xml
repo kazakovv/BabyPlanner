@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/damianin/babyplanner/Adaptors/AdapterPartnerRequests.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/damianin/babyplanner/BackendlessClasses/PartnerDeleteRequest.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/damianin/babyplanner/BackendlessClasses/PartnersAddRequest.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/damianin/babyplanner/Helper/BackendlessHelper.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/damianin/babyplanner/dialogs/ChangePassword.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/damianin/babyplanner/dialogs/ChangeUsername.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/damianin/babyplanner/dialogs/GuyOrGirlDialog.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/damianin/babyplanner/dialogs/SetBirthday.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_change_password.xml" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_change_username.xml" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_male_or_female.xml" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/item_partner_request.xml" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_action_remove.png" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_action_remove.png" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_action_remove.png" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_action_remove.png" charset="windows-1252" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

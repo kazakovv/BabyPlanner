@@ -1,9 +1,12 @@
 package com.damianin.babyplanner;
 
 import android.app.DialogFragment;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,6 +14,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,14 +22,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.backendless.Backendless;
+import com.backendless.BackendlessCollection;
 import com.backendless.BackendlessUser;
+import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
+import com.backendless.persistence.BackendlessDataQuery;
 import com.damianin.babyplanner.Adaptors.AdapterLoveDays;
 import com.damianin.babyplanner.Adaptors.AdapterNavigationDrawer;
+import com.damianin.babyplanner.Helper.BackendlessHelper;
 import com.damianin.babyplanner.Helper.NavigationDrawerItems;
 import com.damianin.babyplanner.Helper.RoundedTransformation;
 import com.damianin.babyplanner.UserInterfaces.LoginActivity;
@@ -35,13 +45,15 @@ import com.damianin.babyplanner.dialogs.ChangeProfilePic;
 import com.damianin.babyplanner.dialogs.ChangeUsername;
 import com.damianin.babyplanner.dialogs.GuyOrGirlDialog;
 import com.damianin.babyplanner.dialogs.SetBirthday;
+import com.damianin.babyplanner.dialogs.SetFirstDayOfCycle;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
-public class Main extends ActionBarActivity {
+public class Main extends ActionBarActivity  {
 
     protected BackendlessUser mCurrentUser;
     protected Toolbar toolbar;
@@ -57,6 +69,13 @@ public class Main extends ActionBarActivity {
     private Button logoutButtonNavigationDrawer;
     protected ChangeProfilePic changeProfilePic;//tova se izpolzva za onactivity result ako smeniame profile pic
 
+    protected MenuItem addPartner;
+
+    protected Context mContext;
+    //swipte to refresh
+    protected ProgressBar mProgressBar;
+    protected LinearLayout mFragmentLoveDaysLayout;
+    protected SwipeRefreshLayout mSwipeToRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +84,13 @@ public class Main extends ActionBarActivity {
 
         mCurrentUser = Backendless.UserService.CurrentUser();
 
+        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
+        mFragmentLoveDaysLayout = (LinearLayout) findViewById(R.id.cardsListLayout);
+        mSwipeToRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+
+        mSwipeToRefreshLayout.setOnRefreshListener(mOnRefreshListener);
+
+        mContext = this;
 
         if (mCurrentUser == null) {
             navigateToLogin();
@@ -73,25 +99,35 @@ public class Main extends ActionBarActivity {
             setSupportActionBar(toolbar);
             loadCardList(mCurrentUser);
             setUpDrawer();
+            //check za pending parner request
+            BackendlessHelper.checkForPendingParnerRequests(mCurrentUser, addPartner);
+            //check za pending delete requests
+            BackendlessHelper.checkForDeletePartnerRequest(mCurrentUser);
+            //updatevame partnirite
+            BackendlessHelper.checkAndUpdatePartners(mCurrentUser);
+
         }
     }
 
-    /*
+    //refresh listener za updatevane na tova dali ima novi saobstehnia
+    protected SwipeRefreshLayout.OnRefreshListener mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
+        @Override
+        public void onRefresh() {
+            //samo tuk davame false kato argument, zashtoto ne iskam da skrivam spinnera, koito si varvi sas swipe to refresh
+            refreshPartnersList(false);
+        }
+    };
+
+
     @Override
-    public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == Statics.UPDATE_STATUS) {
+            BackendlessUser currentUser = Backendless.UserService.CurrentUser();
+            loadCardList(currentUser);
+        }
 
-        loveDaysCards = (RecyclerView) parent.findViewById(R.id.cardList);
-        loveDaysCards.setHasFixedSize(true);
-        LinearLayoutManager llm = new LinearLayoutManager(context);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        loveDaysCards.setLayoutManager(llm);
-
-        return super.onCreateView(parent, name, context, attrs);
-
-    }
-
-    */
-
+    } //krai na onActivity result
 
 
     @Override
@@ -102,12 +138,61 @@ public class Main extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.partner_request) {
+            Intent partnerRequest = new Intent(this, ManagePartnersMain.class);
+            //slagame toya KEY, za da prevkluchim na pravilia tab ot drugata strana kato otvorim ekrana
+            partnerRequest.putExtra(Statics.KEY_PARTNERS_SELECT_TAB, Statics.KEY_PARTNERS_SELECT_PENDING_REQUESTS);
+            startActivity(partnerRequest);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = new MenuInflater(this);
+        inflater.inflate(R.menu.main_menu, menu);
+        //vrazvame butona za dobaviane na novi partniori
+        addPartner = menu.findItem(R.id.partner_request);
+        if (Statics.pendingPartnerRequest == true) {
+            addPartner.setVisible(true);
+        } else  {
+            addPartner.setVisible(false);
+        }
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    //register your activity onResume() za poluchavane na broadcast ot push receiver
+    //izpolzva se za pokavane na addpartner request icon
+    @Override
+    public void onResume() {
+        super.onResume();
+        mContext.registerReceiver(mMessageReceiver, new IntentFilter(Statics.FLAG_INTENT_ADD_PARTNER));
+    }
+
+    //Must unregister onPause()
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mContext.unregisterReceiver(mMessageReceiver);
+    }
+
+
+    //This is the handler that will manager to process the broadcast intent
+    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if(addPartner != null) {
+                addPartner.setVisible(true);
+            }
+        }
+    };
+
+    /*
+    HELPER METODI
+     */
 
     protected void navigateToLogin() {
         //preprashta kam login screen
@@ -121,8 +206,8 @@ public class Main extends ActionBarActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
-
-    protected void loadCardList(BackendlessUser currentUser) {
+    //public, zashtoto ni triabva dostap do metoda ot SetFirstDayOfCycle dialog, kogato se smeniat dnite.
+    public void loadCardList(BackendlessUser currentUser) {
 
         loveDaysCards = (RecyclerView) findViewById(R.id.cardList);
         loveDaysCards.setHasFixedSize(true);
@@ -147,6 +232,63 @@ public class Main extends ActionBarActivity {
     }
 
 
+    //helper za swipe to refresh
+
+
+    protected void refreshPartnersList(final boolean hideLayouts){
+        if(hideLayouts == true) {
+            mProgressBar.setVisibility(View.VISIBLE);
+            mFragmentLoveDaysLayout.setVisibility(View.GONE);
+        } else {
+            //ako ne skirvame layouts, znachi metodat e izvikan ot swipe to refresh
+            mSwipeToRefreshLayout.setRefreshing(true);
+        }
+
+        String whereClause = "email='" + mCurrentUser.getEmail() +"'";
+        BackendlessDataQuery dataQuery = new BackendlessDataQuery();
+        dataQuery.setWhereClause(whereClause);
+        Backendless.Data.of(BackendlessUser.class).find(dataQuery, new AsyncCallback<BackendlessCollection<BackendlessUser>>() {
+
+
+            @Override
+            public void handleResponse(BackendlessCollection<BackendlessUser> user) {
+                if(hideLayouts == true) {
+                    mProgressBar.setVisibility(View.GONE);
+                    mFragmentLoveDaysLayout.setVisibility(View.VISIBLE);
+                }
+                if(mSwipeToRefreshLayout.isRefreshing()){
+                    mSwipeToRefreshLayout.setRefreshing(false);
+                }
+                //tova e updatnat tekusht potrebitel
+                BackendlessUser currentUser = user.getCurrentPage().get(0);
+                //updatevame go lokano
+                Backendless.UserService.setCurrentUser(currentUser);
+                loadCardList(currentUser);
+
+                if(currentUser.getProperty(Statics.KEY_PARTNERS) instanceof BackendlessUser[]) {
+                    Toast.makeText(mContext,R.string.toast_update_partners,Toast.LENGTH_LONG).show();
+                } else {
+                    //niama namereni partniori
+                    Toast.makeText(mContext,R.string.toast_update_partners_no_partners_found,Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void handleFault(BackendlessFault backendlessFault) {
+                if(hideLayouts == true) {
+                    mProgressBar.setVisibility(View.GONE);
+                    mFragmentLoveDaysLayout.setVisibility(View.VISIBLE);
+                }
+                if(mSwipeToRefreshLayout.isRefreshing()){
+                    mSwipeToRefreshLayout.setRefreshing(false);
+                }
+                //niama kakvo da napravim
+                Toast.makeText(mContext,"not refreshed...",Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
 
      /*
         HELPER METODI ZA NAVIGATION DRAWER
@@ -311,6 +453,8 @@ ON CLICK LISTENER ZA NAVIGATION DRAWER
                     });
         }
     };
+
+
 
     //on click za ostanalite opcii
     private class DrawerItemClickListener implements ListView.OnItemClickListener {

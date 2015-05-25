@@ -73,6 +73,7 @@
     <string name="requests_partners_tab">Requests</string>
     <string name="existing_partners_tab">Partners</string>
     <string name="toast_update_partners_no_partners_found">You have no partners</string>
+    <string name="toast_update_partners">Your partners were updated</string>
     <string name="no_partners_found">No partners were found</string>
     <string name="no_pending_partner_requests_message">You have no pending partner requests. Swipe down to refresh.</string>
     <string name="hint_search_partner_by_email">Search partner by email</string>
@@ -116,6 +117,12 @@
     <string name="dialog_change_username_title">Change your username</string>
     <string name="username_cannot_be_empty">The username cannot be empty</string>
     <string name="toast_username_updated">Your username was updated</string>
+    <string name="new_partner_request_push">wants to become your partner</string>
+    <string name="new_partner_request">New partner request</string>
+    <string name="push_calendar_update">updated her Sexy Calendar</string>
+    <string name="partner_request_approved">and you are now connected</string>
+    <string name="push_sexy_status_updated_female">updated her sexy status</string>
+    <string name="push_sexy_status_updated_male">updated his sexy status</string>
 
     <!-- NAVIGATION DRAWER -->
     <string name="drawer_open">Open</string>

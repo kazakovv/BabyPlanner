@@ -21,6 +21,7 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.BackendlessDataQuery;
 import com.damianin.babyplanner.BackendlessClasses.PartnersAddRequest;
+import com.damianin.babyplanner.Helper.BackendlessMessage;
 import com.damianin.babyplanner.dialogs.CustomAlertDialog;
 import com.squareup.picasso.Picasso;
 import com.damianin.babyplanner.Helper.RoundedTransformation;
@@ -190,8 +191,8 @@ public class AdapterSearchPartners extends ArrayAdapter<BackendlessUser> {
                             //sled kato kachim data v backendless izprashtame i push
 
                             //tova e za kanala, po koito da izpratim push message
-                            //TODO SEND Push
-                            //BackendlessMessage.sendPush(mCurrentUser, selectedPartner, null, mContext, Statics.TYPE_PARTNER_REQUEST);
+                            //SEND Push
+                            BackendlessMessage.sendPush(mCurrentUser, selectedPartner, null, mContext, Statics.TYPE_PARTNER_REQUEST);
                             Toast.makeText(mContext, R.string.partner_request_sent_toast, Toast.LENGTH_LONG).show();
                             mFoundUsers.remove(selectedPartnerPosition);
                             notifyDataSetChanged();

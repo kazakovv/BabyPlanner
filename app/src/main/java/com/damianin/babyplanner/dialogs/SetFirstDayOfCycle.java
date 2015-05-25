@@ -1,12 +1,13 @@
 package com.damianin.babyplanner.dialogs;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,7 +26,9 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.BackendlessDataQuery;
 import com.damianin.babyplanner.DefaultCallback;
+import com.damianin.babyplanner.Helper.BackendlessMessage;
 import com.damianin.babyplanner.Helper.CycleStage;
+import com.damianin.babyplanner.Main;
 import com.damianin.babyplanner.R;
 import com.damianin.babyplanner.Statics;
 
@@ -43,9 +46,11 @@ public class SetFirstDayOfCycle extends DialogFragment implements AdapterView.On
     CheckBox sendSexyCalendarUpdateToPartners;
     Context context;
 
+
     protected BackendlessUser mCurrentUser;
 
     final static long MILLIS_PER_DAY = 24 * 3600 * 1000;
+
 
     protected TextView cyclePhaseStatus; //vzimame statusa, za da izprashtame calendar updates
     @Override
@@ -113,18 +118,8 @@ public class SetFirstDayOfCycle extends DialogFragment implements AdapterView.On
                     public void onClick(DialogInterface dialog, int id) {
                         updateCurrentUser();
 
-                        String averageCycleLength = spinnerCycle.getSelectedItem().toString();
-                        String titleCycle =
-                                CycleStage.determineCyclePhase(mCurrentUser, context);
 
-                        //vrashta infoto kam onActivityResult v FragmentDays
-                        Intent i = new Intent();
-                        //Bundle extras = new Bundle();
-                        //extras.putSerializable("user",mCurrentUser);
-                        //extras.putString(Statics.TITLE_CYCLE,titleCycle);
-                        //extras.putBoolean(Statics.SEND_SEXY_CALENDAR_UPDATE_TO_PARTNERS,sendSexyCalendarUpdateToPartners.isChecked());
-                        //i.putExtras(extras);
-                        getTargetFragment().onActivityResult(getTargetRequestCode(), Statics.MENSTRUAL_CALENDAR_DIALOG, i);
+                        ((Main)getActivity()).loadCardList(mCurrentUser);
 
                         dismiss();
                     }//krai na else statment
@@ -154,6 +149,9 @@ public class SetFirstDayOfCycle extends DialogFragment implements AdapterView.On
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+
+
     /*
     HELPER METODI
      */
@@ -244,8 +242,7 @@ public class SetFirstDayOfCycle extends DialogFragment implements AdapterView.On
                     BackendlessUser[] parters = (BackendlessUser[]) user.getCurrentPage().get(0).getProperty(Statics.KEY_PARTNERS);
                     //send push
                    for (BackendlessUser partner : parters) {
-                       //TODO ako ne sa prazni izprashtame push message
-                      // BackendlessMessage.sendPush(mCurrentUser, partner, null, context, Statics.TYPE_CALENDAR_UPDATE);
+                      BackendlessMessage.sendPush(mCurrentUser, partner, null, context, Statics.TYPE_CALENDAR_UPDATE);
 
                    }//krai na send push
                }

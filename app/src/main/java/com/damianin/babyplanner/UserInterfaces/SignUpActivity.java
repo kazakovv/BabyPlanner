@@ -15,6 +15,7 @@ import com.backendless.BackendlessUser;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.BackendlessDataQuery;
 import com.damianin.babyplanner.DefaultCallback;
+import com.damianin.babyplanner.Helper.BackendlessMessage;
 import com.damianin.babyplanner.Main;
 import com.damianin.babyplanner.R;
 import com.damianin.babyplanner.Statics;
@@ -171,8 +172,7 @@ public class SignUpActivity extends FragmentActivity implements SetBirthdaySignU
 
                     @Override
                     public void handleResponse(BackendlessUser backendlessUser) {
-                        //TODO reigstrirame za push notifications
-                        //BackendlessMessage.registerDeviceForPush(backendlessUser);
+                        BackendlessMessage.registerDeviceForPush(backendlessUser);
                         //!!!!!!!!!!!!!!!!!!
                         //User successfully created!
                         //TODO zapisvame emaila v shared preferences, za da moze posle da se logvame po-lesno

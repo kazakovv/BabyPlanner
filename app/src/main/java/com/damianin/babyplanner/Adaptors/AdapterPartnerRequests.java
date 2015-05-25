@@ -17,6 +17,7 @@ import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.damianin.babyplanner.Helper.BackendlessHelper;
+import com.damianin.babyplanner.Helper.BackendlessMessage;
 import com.squareup.picasso.Picasso;
 import com.damianin.babyplanner.BackendlessClasses.PartnersAddRequest;
 import com.damianin.babyplanner.Helper.RoundedTransformation;
@@ -179,12 +180,12 @@ public class AdapterPartnerRequests extends ArrayAdapter<PartnersAddRequest> {
                                                     holder.layoutButtons.setVisibility(View.VISIBLE);
                                                     holder.progressBar.setVisibility(View.GONE);
 
-                                                    //TODO izprashtame push message, che pokanata e prieta
+                                                    //izprashtame push message, che pokanata e prieta
                                                     String deviceID = (String) mUserRequesting.getProperty(Statics.KEY_DEVICE_ID);
-                                                    /*BackendlessMessage.sendPush( mCurrentUser,
-                                                                                mUserRequesting, null,
-                                                                                mContext,Statics.KEY_PARTNER_REQUEST_APPROVED );
-                                                    */
+                                                    BackendlessMessage.sendPush(mCurrentUser,
+                                                            mUserRequesting, null,
+                                                            mContext, Statics.KEY_PARTNER_REQUEST_APPROVED);
+
                                                     //updatevame lokalno tekushtia potrebitel
                                                     Backendless.UserService.setCurrentUser(mCurrentUser);
 

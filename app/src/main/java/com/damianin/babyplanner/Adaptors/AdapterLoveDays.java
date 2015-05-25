@@ -1,6 +1,7 @@
 package com.damianin.babyplanner.Adaptors;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -10,20 +11,21 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.backendless.BackendlessUser;
 import com.damianin.babyplanner.Helper.CycleStage;
 import com.damianin.babyplanner.Helper.RoundedTransformation;
-import com.damianin.babyplanner.Main;
 import com.damianin.babyplanner.R;
 import com.damianin.babyplanner.Statics;
 import com.damianin.babyplanner.UserInterfaces.ActivityChangeSexyStatus;
+import com.damianin.babyplanner.dialogs.SetFirstDayOfCycle;
 import com.squareup.picasso.Picasso;
 
 
 import java.util.List;
 
-public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.ContactViewHolder> {
+public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.ContactViewHolder>  {
 
     private List<BackendlessUser> cardsToDisplay;
     private BackendlessUser userToDisplay; //tova e potrebiteliat ot cardsToDisplay, za koito sazdavame tekushtata karta
@@ -32,7 +34,6 @@ public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.Contac
     private static int SEX_MALE = 1;
     private static int CURRENT_USER_MALE = 2;
     private static int CURRENT_USER_FEMALE = 3;
-    private static int REQUEST_FOR_ACTIVITY_CODE = 5;
 
     public AdapterLoveDays(List<BackendlessUser> cardsToDisplay, Context mContext) {
         this.cardsToDisplay = cardsToDisplay;
@@ -102,7 +103,7 @@ public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.Contac
                 public void onClick(View v) {
                     //TODO change Main
                     Intent intent = new Intent(mContext, ActivityChangeSexyStatus.class);
-                    ((Activity) mContext).startActivityForResult(intent, REQUEST_FOR_ACTIVITY_CODE);
+                    ((Activity) mContext).startActivityForResult(intent, Statics.UPDATE_STATUS);
                     //Intent intent = new Intent(context, TargetActivity.class);
                     //mainActivity.startActivityForResult(intent, Statics.UPDATE_STATUS);
                 }
@@ -112,12 +113,14 @@ public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.Contac
                 contactViewHolder.vPrivateDays.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //TODO on click za private days
-                        /*
+
+
                         SetFirstDayOfCycle newDialog = new SetFirstDayOfCycle();
-                        newDialog.setTargetFragment(mainActivity, Statics.MENSTRUAL_CALENDAR_DIALOG);
-                        newDialog.show(mainActivity.getFragmentManager(),"Welcome");
-                        */
+
+                        //newDialog.setTargetFragment(Main, Statics.MENSTRUAL_CALENDAR_DIALOG);
+                        FragmentManager fm = ((Activity) mContext).getFragmentManager();
+                        newDialog.show(fm,"TAG");
+
                     }
                 });
             }
@@ -198,6 +201,8 @@ public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.Contac
 
         return new ContactViewHolder(itemView);
     }
+
+
 
     public static class ContactViewHolder extends RecyclerView.ViewHolder {
         protected TextView vTitle;

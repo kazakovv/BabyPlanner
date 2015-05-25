@@ -16,6 +16,7 @@ import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
 import com.backendless.exceptions.BackendlessFault;
 import com.damianin.babyplanner.DefaultCallback;
+import com.damianin.babyplanner.Main;
 import com.damianin.babyplanner.R;
 import com.damianin.babyplanner.Statics;
 
@@ -88,6 +89,8 @@ public class GuyOrGirlDialog extends DialogFragment implements DialogInterface.O
                                 super.handleResponse(backendlessUser);
                                 //zapisvame lokalno
                                 Backendless.UserService.setCurrentUser(currentUser);
+                                ((Main)getActivity()).loadCardList(currentUser);
+
                                 Toast.makeText(context,
                                         R.string.selection_saved_successfully, Toast.LENGTH_LONG).show();
 

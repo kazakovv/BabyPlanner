@@ -12,6 +12,7 @@ import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
 import com.backendless.exceptions.BackendlessFault;
 import com.damianin.babyplanner.DefaultCallback;
+import com.damianin.babyplanner.Helper.BackendlessMessage;
 import com.damianin.babyplanner.Main;
 import com.damianin.babyplanner.R;
 import com.damianin.babyplanner.Statics;
@@ -83,10 +84,8 @@ public class LoginActivity extends Activity {
                     Backendless.UserService.login(userEmail, password,  new DefaultCallback<BackendlessUser>(LoginActivity.this, progressSignInMessage) {
                         @Override
                         public void handleResponse(BackendlessUser backendlessUser) {
-                            BackendlessUser test = backendlessUser;
-                            //TODO Register device for push notifications
-                           // BackendlessMessage.registerDeviceForPush(backendlessUser);
-                            // zapisvame username v shared prefs, za da moze da se zaredi po-lesno sledvashtiat pat
+                            BackendlessMessage.registerDeviceForPush(backendlessUser);
+                            //TODO zapisvame username v shared prefs, za da moze da se zaredi po-lesno sledvashtiat pat
                             //SharedPrefsHelper.saveEmailForLogin(LoginActivity.this, backendlessUser);
                             //User successfully loged in!.Switch to main screen.
                             Intent intent = new Intent(LoginActivity.this, Main.class);
