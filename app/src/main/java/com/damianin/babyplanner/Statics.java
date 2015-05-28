@@ -19,6 +19,7 @@ public class Statics {
     public static final String TYPE_CALENDAR_UPDATE = "calendarUpdate";
     public static final String TYPE_PARTNER_REQUEST ="partnerRequest";
 
+    public static final String KEY_EMAIL_CALENDAR = "emailCalendar";
     public static final String SEX_MALE = "Male";
     public static final String SEX_FEMALE = "Female";
 

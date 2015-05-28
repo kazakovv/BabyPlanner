@@ -149,5 +149,6 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
+    <string name="title_activity_activity_sexy_calendar">ActivitySexyCalendar</string>
 
 </resources>

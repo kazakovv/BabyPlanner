@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,10 +22,13 @@ import com.damianin.babyplanner.Helper.RoundedTransformation;
 import com.damianin.babyplanner.R;
 import com.damianin.babyplanner.Statics;
 import com.damianin.babyplanner.UserInterfaces.ActivityChangeSexyStatus;
+import com.damianin.babyplanner.UserInterfaces.ActivitySexyCalendar;
 import com.damianin.babyplanner.dialogs.SetFirstDayOfCycle;
+import com.roomorama.caldroid.CaldroidFragment;
 import com.squareup.picasso.Picasso;
 
 
+import java.util.Calendar;
 import java.util.List;
 
 public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.ContactViewHolder>  {
@@ -101,7 +107,7 @@ public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.Contac
             contactViewHolder.vSexyStatus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //TODO change Main
+
                     Intent intent = new Intent(mContext, ActivityChangeSexyStatus.class);
                     ((Activity) mContext).startActivityForResult(intent, Statics.UPDATE_STATUS);
                     //Intent intent = new Intent(context, TargetActivity.class);
@@ -240,6 +246,13 @@ public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.Contac
         @Override
         public void onClick(View v) {
             //TODO on click listener za sexy calendar
+            ContactViewHolder holder = (ContactViewHolder) v.getTag();
+            int position = holder.getLayoutPosition();
+            String emailCalendar = cardsToDisplay.get(position).getEmail();
+            Intent intent = new Intent(mContext, ActivitySexyCalendar.class);
+            intent.putExtra(Statics.KEY_EMAIL_CALENDAR,emailCalendar);
+            mContext.startActivity(intent);
+
            /*
             ContactViewHolder holder = (ContactViewHolder) v.getTag();
             //TODO getPosition is depreciated
