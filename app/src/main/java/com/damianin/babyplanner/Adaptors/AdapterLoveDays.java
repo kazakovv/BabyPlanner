@@ -29,6 +29,7 @@ import com.squareup.picasso.Picasso;
 
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.ContactViewHolder>  {
@@ -249,8 +250,13 @@ public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.Contac
             ContactViewHolder holder = (ContactViewHolder) v.getTag();
             int position = holder.getLayoutPosition();
             String emailCalendar = cardsToDisplay.get(position).getEmail();
+            Date firstDayOfCycle = (Date) cardsToDisplay.get(position).getProperty(Statics.FIRST_DAY_OF_CYCLE);
+            int averageCycleLength = (int) cardsToDisplay.get(position).getProperty(Statics.AVERAGE_LENGTH_OF_MENSTRUAL_CYCLE);
+
             Intent intent = new Intent(mContext, ActivitySexyCalendar.class);
             intent.putExtra(Statics.KEY_EMAIL_CALENDAR,emailCalendar);
+            intent.putExtra(Statics.FIRST_DAY_OF_CYCLE,firstDayOfCycle);
+            intent.putExtra(Statics.AVERAGE_LENGTH_OF_MENSTRUAL_CYCLE,averageCycleLength);
             mContext.startActivity(intent);
 
            /*

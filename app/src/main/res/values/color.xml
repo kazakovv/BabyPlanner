@@ -25,4 +25,11 @@
     <color name="android_grey_icons_color">#848384</color>
 
     <color name="dialog_box_background_color">#DADADC</color>
+
+    <!-- COLORS FOR CALENDAR -->
+    <color name="calendar_bleeding">#ff0000</color>
+    <color name="calendar_folicurar">#8BA870</color>
+    <color name="calendar_ovulation">#ff69b4</color>
+    <color name="calendar_luteal">#0000ff</color>
+
 </resources>

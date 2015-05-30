@@ -6,11 +6,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
 import com.damianin.babyplanner.R;
 import com.damianin.babyplanner.Statics;
@@ -26,6 +28,12 @@ public class ActivitySexyCalendar extends ActionBarActivity {
     private CaldroidFragment caldroidFragment;
     protected Toolbar toolbar;
 
+    BackendlessUser mCurrentUser;
+    //passed on from AdapterLoveDays
+    Date firstDayOfCycle;
+    int averageCycleLength;
+    String emailToSearch;
+
     private void setCustomResourceForDates() {
         Calendar cal = Calendar.getInstance();
 
@@ -39,12 +47,13 @@ public class ActivitySexyCalendar extends ActionBarActivity {
         Date greenDate = cal.getTime();
 
         if (caldroidFragment != null) {
-            caldroidFragment.setBackgroundResourceForDate(R.color.apptheme_color,
-                    blueDate);
-            caldroidFragment.setBackgroundResourceForDate(R.color.second_accent_color,
-                    greenDate);
-            caldroidFragment.setTextColorForDate(R.color.color_white, blueDate);
-            caldroidFragment.setTextColorForDate(R.color.color_white, greenDate);
+            //caldroidFragment.setBackgroundResourceForDate(R.color.apptheme_color,blueDate);
+
+            //Load colors for different dates linked to cycle into calendar
+            calendarChangeColors(firstDayOfCycle, averageCycleLength);
+
+            //caldroidFragment.setTextColorForDate(R.color.color_white, blueDate);
+            //caldroidFragment.setTextColorForDate(R.color.color_white, greenDate);
         }
     }
 
@@ -55,10 +64,11 @@ public class ActivitySexyCalendar extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.mipmap.ic_action_back);
         setSupportActionBar(toolbar);
-        //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         final SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
-        String emailCard = getIntent().getStringExtra(Statics.KEY_EMAIL_CALENDAR);
-
+        mCurrentUser = Backendless.UserService.CurrentUser();
+        emailToSearch = getIntent().getStringExtra(Statics.KEY_EMAIL_CALENDAR);
+        firstDayOfCycle = (Date) getIntent().getSerializableExtra(Statics.FIRST_DAY_OF_CYCLE);
+        averageCycleLength = getIntent().getIntExtra(Statics.AVERAGE_LENGTH_OF_MENSTRUAL_CYCLE,0);
         // Setup caldroid fragment
         // **** If you want normal CaldroidFragment, use below line ****
         caldroidFragment = new CaldroidFragment();
@@ -92,7 +102,7 @@ public class ActivitySexyCalendar extends ActionBarActivity {
             // args.putBoolean(CaldroidFragment.SQUARE_TEXT_VIEW_CELL, false);
 
             // Uncomment this line to use dark theme
-            args.putInt(CaldroidFragment.THEME_RESOURCE, com.caldroid.R.style.CaldroidDefaultDark);
+            //args.putInt(CaldroidFragment.THEME_RESOURCE, com.caldroid.R.style.CaldroidDefaultDark);
 
             caldroidFragment.setArguments(args);
         }
@@ -106,4 +116,53 @@ public class ActivitySexyCalendar extends ActionBarActivity {
 
 
     }
+
+    protected void calendarChangeColors(Date firstDayOfCycle, int averageLengthOfCycle){
+        Calendar now = Calendar.getInstance();
+        Calendar cycleFirstDay  = Calendar.getInstance();
+        cycleFirstDay.setTime(firstDayOfCycle);
+        long difference = now.getTimeInMillis() - cycleFirstDay.getTimeInMillis();
+
+        final int days = (int) (difference / (24 * 60 * 60 * 1000));
+        final int firstDayOfOvulation = averageLengthOfCycle - 14;
+        final int lastDayOfOvulation = averageLengthOfCycle - 10;
+
+        int daysUntilEndOfCycle = averageLengthOfCycle - days;
+
+        Calendar dateToChangeColor = Calendar.getInstance();
+        int dayToLookup = days;
+        for (int i = 0; i < daysUntilEndOfCycle; i++ ) {
+            colorsForDates(dayToLookup,firstDayOfOvulation,lastDayOfOvulation,averageLengthOfCycle,dateToChangeColor.getTime());
+            dayToLookup +=1;
+            dateToChangeColor.add(Calendar.DAY_OF_MONTH,1);
+        }
+    }
+
+    protected void colorsForDates(int days, int firstDayOfOvulation, int lastDayOfOvulation,
+                                  int averageLengthOfCycle, Date dateToChangeColor ) {
+
+        if (days >= 0 && days <= 4) {
+            //bleeding
+            caldroidFragment.setBackgroundResourceForDate(R.color.calendar_bleeding,
+                    dateToChangeColor);
+        } else if (days > 4 && days < firstDayOfOvulation) {
+            //folicurar phase
+            // active energetic
+            caldroidFragment.setBackgroundResourceForDate(R.color.calendar_folicurar,
+                    dateToChangeColor);
+        } else if (days >= firstDayOfOvulation && days < lastDayOfOvulation) {
+            //ovulation
+            //sexy
+            caldroidFragment.setBackgroundResourceForDate(R.color.calendar_ovulation,
+                    dateToChangeColor);
+        } else if (days >= lastDayOfOvulation && days <= averageLengthOfCycle) {
+            //luteal
+            caldroidFragment.setBackgroundResourceForDate(R.color.calendar_luteal,
+                    dateToChangeColor);
+        }
+        caldroidFragment.setTextColorForDate(R.color.color_white,dateToChangeColor);
+    }
+
+
+
 }

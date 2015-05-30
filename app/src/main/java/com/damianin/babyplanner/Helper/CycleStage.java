@@ -42,7 +42,7 @@ public class CycleStage {
             if (days >= 0 && days <= 4) {
                 //bleeding
                 cyclePhaseMassage = context.getResources().getString(R.string.period_bleeding);
-            } else if (days > 5 && days < firstDayOfOvulation) {
+            } else if (days > 4 && days < firstDayOfOvulation) {
                 //folicurar phase
                 // active energetic
                 cyclePhaseMassage = context.getResources().getString(R.string.period_follicular_phase);
@@ -72,4 +72,7 @@ public class CycleStage {
         }
         return cyclePhaseMassage;
     }//krai na determine cycle phase
+
+
+
 }
