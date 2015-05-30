@@ -1,23 +1,15 @@
 package com.damianin.babyplanner.UserInterfaces;
 
-import android.provider.SyncStateContract;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
 import com.damianin.babyplanner.R;
 import com.damianin.babyplanner.Statics;
 import com.roomorama.caldroid.CaldroidFragment;
-import com.roomorama.caldroid.CaldroidListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -60,7 +52,7 @@ public class ActivitySexyCalendar extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_activity_sexy_calendar);
+        setContentView(R.layout.activity_sexy_calendar);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.mipmap.ic_action_back);
         setSupportActionBar(toolbar);

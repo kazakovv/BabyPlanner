@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.damianin.babyplanner.UserInterfaces.ActivitySexyCalendar">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/app_toolbar" />
+
+
+    <LinearLayout
+        android:id="@+id/calendar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/period_bleeding"
+        android:textColor="@color/calendar_bleeding"
+        android:id="@+id/bleeding" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/period_follicular_phase"
+        android:textColor="@color/calendar_folicurar"
+        android:id="@+id/follicular" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/period_ovulation"
+        android:textColor="@color/calendar_ovulation"
+        android:id="@+id/ovulation" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/period_luteal"
+        android:textColor="@color/calendar_luteal"
+        android:id="@+id/luteal" />
+
+</LinearLayout>
