@@ -16,6 +16,7 @@ import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.BackendlessDataQuery;
 import com.damianin.babyplanner.DefaultCallback;
 import com.damianin.babyplanner.Helper.BackendlessMessage;
+import com.damianin.babyplanner.Helper.SharedPrefsHelper;
 import com.damianin.babyplanner.Main;
 import com.damianin.babyplanner.R;
 import com.damianin.babyplanner.Statics;
@@ -175,16 +176,16 @@ public class SignUpActivity extends FragmentActivity implements SetBirthdaySignU
                         BackendlessMessage.registerDeviceForPush(backendlessUser);
                         //!!!!!!!!!!!!!!!!!!
                         //User successfully created!
-                        //TODO zapisvame emaila v shared preferences, za da moze posle da se logvame po-lesno
-                        //SharedPrefsHelper.saveEmailForLogin(SignUpActivity.this, backendlessUser);
+                        //zapisvame emaila v shared preferences, za da moze posle da se logvame po-lesno
+                        SharedPrefsHelper.saveEmailForLogin(SignUpActivity.this, backendlessUser);
                         //log in!
                         Backendless.UserService.login(email, password,
                                 new DefaultCallback<BackendlessUser>(SignUpActivity.this, message) {
                                     @Override
                                     public void handleResponse(BackendlessUser backendlessUser) {
                                         super.handleResponse(backendlessUser);
-                                        //TODO registrirame user za push
-                                        //BackendlessMessage.registerDeviceForPush(backendlessUser);
+                                        //registrirame user za push
+                                        BackendlessMessage.registerDeviceForPush(backendlessUser);
                                         // Switch to main screen.
                                         Intent intent = new Intent(SignUpActivity.this, Main.class);
                                         //dobaviame flagove, za da ne moze usera da se varne pak kam toya ekran

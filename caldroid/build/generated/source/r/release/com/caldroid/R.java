@@ -142,6 +142,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int CaldroidDefaultDarkNormalCell=0x7f04000b;
         public static int CaldroidDefaultDarkSquareCell=0x7f04000c;
         public static int CaldroidDefaultGridView=0x7f04000d;
+        /**  resource
+         */
         public static int CaldroidDefaultLeftButton=0x7f04000e;
         public static int CaldroidDefaultMonthName=0x7f04000f;
         public static int CaldroidDefaultNormalCell=0x7f040010;

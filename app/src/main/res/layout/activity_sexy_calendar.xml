@@ -42,5 +42,4 @@
         android:text="@string/period_luteal"
         android:textColor="@color/calendar_luteal"
         android:id="@+id/luteal" />
-
 </LinearLayout>

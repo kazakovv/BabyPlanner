@@ -12,6 +12,7 @@
         <item name="styleCaldroidNormalCell">@style/CaldroidDefaultNormalCell</item>
         <item name="styleCaldroidSquareCell">@style/CaldroidDefaultSquareCell</item>
         <item name="styleCaldroidWeekdayView">@style/CaldroidDefaultWeekday</item>
+
     </style>
 
     <style name="CaldroidDefaultCalendarViewLayout">
@@ -23,11 +24,12 @@
     <style name="CaldroidDefaultArrowButton">
         <item name="android:layout_width">50dp</item>
         <item name="android:layout_height">44dp</item>
+
     </style>
 
     <style name="CaldroidDefaultLeftButton" parent="CaldroidDefaultArrowButton">
         <item name="android:layout_alignParentLeft">true</item>
-        <item name="android:background">@drawable/left_arrow</item>
+        <item name="android:background">@drawable/left_arrow</item> <!-- resource-->
     </style>
 
     <style name="CaldroidDefaultRightButton" parent="CaldroidDefaultArrowButton">

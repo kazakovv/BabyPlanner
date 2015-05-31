@@ -3,7 +3,11 @@ package com.damianin.babyplanner.UserInterfaces;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.ViewTreeObserver;
+import android.widget.Button;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
@@ -20,11 +24,13 @@ public class ActivitySexyCalendar extends ActionBarActivity {
     private CaldroidFragment caldroidFragment;
     protected Toolbar toolbar;
 
-    BackendlessUser mCurrentUser;
+    protected BackendlessUser mCurrentUser;
     //passed on from AdapterLoveDays
-    Date firstDayOfCycle;
-    int averageCycleLength;
-    String emailToSearch;
+    protected Date firstDayOfCycle;
+    protected int averageCycleLength;
+    protected String emailToSearch;
+
+    protected RecyclerView listWithCalendar;
 
     private void setCustomResourceForDates() {
         Calendar cal = Calendar.getInstance();
@@ -53,6 +59,7 @@ public class ActivitySexyCalendar extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sexy_calendar);
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.mipmap.ic_action_back);
         setSupportActionBar(toolbar);
@@ -61,6 +68,9 @@ public class ActivitySexyCalendar extends ActionBarActivity {
         emailToSearch = getIntent().getStringExtra(Statics.KEY_EMAIL_CALENDAR);
         firstDayOfCycle = (Date) getIntent().getSerializableExtra(Statics.FIRST_DAY_OF_CYCLE);
         averageCycleLength = getIntent().getIntExtra(Statics.AVERAGE_LENGTH_OF_MENSTRUAL_CYCLE,0);
+
+
+
         // Setup caldroid fragment
         // **** If you want normal CaldroidFragment, use below line ****
         caldroidFragment = new CaldroidFragment();
@@ -85,7 +95,8 @@ public class ActivitySexyCalendar extends ActionBarActivity {
             args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
             args.putBoolean(CaldroidFragment.ENABLE_SWIPE, true);
             args.putBoolean(CaldroidFragment.SIX_WEEKS_IN_CALENDAR, true);
-
+            args.putBoolean(CaldroidFragment.SQUARE_TEXT_VIEW_CELL, false);
+            args.putBoolean(CaldroidFragment.SHOW_NAVIGATION_ARROWS, true);
             // Uncomment this to customize startDayOfWeek
             // args.putInt(CaldroidFragment.START_DAY_OF_WEEK,
             // CaldroidFragment.TUESDAY); // Tuesday
@@ -94,9 +105,22 @@ public class ActivitySexyCalendar extends ActionBarActivity {
             // args.putBoolean(CaldroidFragment.SQUARE_TEXT_VIEW_CELL, false);
 
             // Uncomment this line to use dark theme
-            //args.putInt(CaldroidFragment.THEME_RESOURCE, com.caldroid.R.style.CaldroidDefaultDark);
+            args.putInt(CaldroidFragment.THEME_RESOURCE, com.caldroid.R.style.CaldroidDefault);
 
             caldroidFragment.setArguments(args);
+            final Button left = caldroidFragment.getLeftArrowButton();
+            Button right = caldroidFragment.getRightArrowButton();
+            //TODO !!!!
+            /*ViewTreeObserver vto = left.getViewTreeObserver();
+            vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    // do something now when the object is loaded
+                    // e.g. find the real size of it etc
+                    left.setBackgroundColor(getResources().getColor(R.color.apptheme_color));
+                }
+            });
+            */
         }
 
         setCustomResourceForDates();

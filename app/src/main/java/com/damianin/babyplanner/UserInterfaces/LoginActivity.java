@@ -13,6 +13,7 @@ import com.backendless.BackendlessUser;
 import com.backendless.exceptions.BackendlessFault;
 import com.damianin.babyplanner.DefaultCallback;
 import com.damianin.babyplanner.Helper.BackendlessMessage;
+import com.damianin.babyplanner.Helper.SharedPrefsHelper;
 import com.damianin.babyplanner.Main;
 import com.damianin.babyplanner.R;
 import com.damianin.babyplanner.Statics;
@@ -42,12 +43,12 @@ public class LoginActivity extends Activity {
         mEmail = (EditText) findViewById(R.id.login_email);
         mPassword = (EditText) findViewById(R.id.login_password);
         mLoginButton = (Button) findViewById(R.id.logInButton);
-        //TODO zarezdame emaila na poslednia lognal se potrebitel
-        //String emailOfLastLoggedInUser = SharedPrefsHelper.loadEmailOfLastLoggedInUser(LoginActivity.this);
-        /*if (emailOfLastLoggedInUser !=null) {
+        //zarezdame emaila na poslednia lognal se potrebitel
+        String emailOfLastLoggedInUser = SharedPrefsHelper.loadEmailOfLastLoggedInUser(LoginActivity.this);
+        if (emailOfLastLoggedInUser !=null) {
             mEmail.setText(emailOfLastLoggedInUser);
         }
-        */
+
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,8 +86,8 @@ public class LoginActivity extends Activity {
                         @Override
                         public void handleResponse(BackendlessUser backendlessUser) {
                             BackendlessMessage.registerDeviceForPush(backendlessUser);
-                            //TODO zapisvame username v shared prefs, za da moze da se zaredi po-lesno sledvashtiat pat
-                            //SharedPrefsHelper.saveEmailForLogin(LoginActivity.this, backendlessUser);
+                            //zapisvame username v shared prefs, za da moze da se zaredi po-lesno sledvashtiat pat
+                            SharedPrefsHelper.saveEmailForLogin(LoginActivity.this, backendlessUser);
                             //User successfully loged in!.Switch to main screen.
                             Intent intent = new Intent(LoginActivity.this, Main.class);
                             //dobaviame flagove, za da ne moze usera da se varne pak kam toya ekran
