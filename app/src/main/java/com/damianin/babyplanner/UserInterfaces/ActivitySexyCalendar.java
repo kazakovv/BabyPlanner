@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
@@ -63,7 +64,6 @@ public class ActivitySexyCalendar extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.mipmap.ic_action_back);
         setSupportActionBar(toolbar);
-        final SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
         mCurrentUser = Backendless.UserService.CurrentUser();
         emailToSearch = getIntent().getStringExtra(Statics.KEY_EMAIL_CALENDAR);
         firstDayOfCycle = (Date) getIntent().getSerializableExtra(Statics.FIRST_DAY_OF_CYCLE);
@@ -97,30 +97,19 @@ public class ActivitySexyCalendar extends ActionBarActivity {
             args.putBoolean(CaldroidFragment.SIX_WEEKS_IN_CALENDAR, true);
             args.putBoolean(CaldroidFragment.SQUARE_TEXT_VIEW_CELL, false);
             args.putBoolean(CaldroidFragment.SHOW_NAVIGATION_ARROWS, true);
+
             // Uncomment this to customize startDayOfWeek
             // args.putInt(CaldroidFragment.START_DAY_OF_WEEK,
             // CaldroidFragment.TUESDAY); // Tuesday
 
-            // Uncomment this line to use Caldroid in compact mode
-            // args.putBoolean(CaldroidFragment.SQUARE_TEXT_VIEW_CELL, false);
 
             // Uncomment this line to use dark theme
             args.putInt(CaldroidFragment.THEME_RESOURCE, com.caldroid.R.style.CaldroidDefault);
 
             caldroidFragment.setArguments(args);
-            final Button left = caldroidFragment.getLeftArrowButton();
-            Button right = caldroidFragment.getRightArrowButton();
-            //TODO !!!!
-            /*ViewTreeObserver vto = left.getViewTreeObserver();
-            vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-                @Override
-                public void onGlobalLayout() {
-                    // do something now when the object is loaded
-                    // e.g. find the real size of it etc
-                    left.setBackgroundColor(getResources().getColor(R.color.apptheme_color));
-                }
-            });
-            */
+
+
+
         }
 
         setCustomResourceForDates();

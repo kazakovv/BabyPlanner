@@ -108,5 +108,8 @@ public class Statics {
     //name for partner request intent da pokazva add partner icon if activity is running
     public static String FLAG_INTENT_ADD_PARTNER = "addPartnerRequest";
 
+    //statics for onactivity result codes for changing profile picture
+    public static int CHOOSE_PHOTO_REQUEST = 222;
+    public static int TAKE_PHOTO_REQUEST = 333;
 
 }

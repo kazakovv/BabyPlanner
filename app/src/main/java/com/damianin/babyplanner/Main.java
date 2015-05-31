@@ -126,6 +126,12 @@ public class Main extends ActionBarActivity  {
             BackendlessUser currentUser = Backendless.UserService.CurrentUser();
             loadCardList(currentUser);
         }
+        if(requestCode == Statics.CHOOSE_PHOTO_REQUEST || requestCode == Statics.TAKE_PHOTO_REQUEST){
+            //obrabotva se v OnActivityResult v ChangeProfilePic dialog box
+            changeProfilePic.onActivityResult(requestCode,resultCode,data);
+
+        }//on activity result za promiana na profile pic
+
 
     } //krai na onActivity result
 

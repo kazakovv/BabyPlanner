@@ -33,8 +33,7 @@ public class ChangeProfilePic extends DialogFragment implements DialogInterface.
     protected String mMessageType;
     protected BackendlessUser mCurrentUser;
 
-    public static int CHOOSE_PHOTO_REQUEST = 222;
-    public static int TAKE_PHOTO_REQUEST = 333;
+
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -87,7 +86,7 @@ public class ChangeProfilePic extends DialogFragment implements DialogInterface.
                             mMessageType = Statics.TYPE_IMAGE_MESSAGE;
                             Intent choosePhotoIntent = new Intent(Intent.ACTION_GET_CONTENT);
                             choosePhotoIntent.setType("image/*");
-                            getActivity().startActivityForResult(choosePhotoIntent, CHOOSE_PHOTO_REQUEST);
+                            getActivity().startActivityForResult(choosePhotoIntent, Statics.CHOOSE_PHOTO_REQUEST);
 
                         }
 
@@ -110,7 +109,7 @@ public class ChangeProfilePic extends DialogFragment implements DialogInterface.
         Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         takePhotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, mMediaUriOutputTakePic);
 
-        getActivity().startActivityForResult(takePhotoIntent, TAKE_PHOTO_REQUEST);
+        getActivity().startActivityForResult(takePhotoIntent, Statics.TAKE_PHOTO_REQUEST);
     }
 
     @Override
@@ -122,7 +121,7 @@ public class ChangeProfilePic extends DialogFragment implements DialogInterface.
             //ako e choose photo request vrashta null znachi ima greshka
             //take photo vrashta null po podrazbirane.
             // V tozi sluchai izpolzvame mMediaUriOutputTakePic
-            if(requestCode == CHOOSE_PHOTO_REQUEST) {
+            if(requestCode == Statics.CHOOSE_PHOTO_REQUEST) {
                 Toast.makeText(mContext, R.string.general_error_message, Toast.LENGTH_LONG).show();
                 return;
             }
