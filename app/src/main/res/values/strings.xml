@@ -123,7 +123,7 @@
     <string name="partner_request_approved">and you are now connected</string>
     <string name="push_sexy_status_updated_female">updated her sexy status</string>
     <string name="push_sexy_status_updated_male">updated his sexy status</string>
-
+    <string name="baby_sign">Baby star counter</string>
     <!-- NAVIGATION DRAWER -->
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>

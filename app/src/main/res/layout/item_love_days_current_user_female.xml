@@ -84,5 +84,15 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
+        <Button
+            android:id="@+id/babySign"
+            style="@style/DefaultButton.SmallText"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/baby_sign"
+            android:layout_below="@+id/showSexyCalendar"
+            android:layout_centerHorizontal="true" />
+
     </RelativeLayout>
 </android.support.v7.widget.CardView>

@@ -250,7 +250,7 @@ public class Main extends ActionBarActivity  {
             mSwipeToRefreshLayout.setRefreshing(true);
         }
 
-        String whereClause = "email='" + mCurrentUser.getEmail() +"'";
+        String whereClause = "mareOrFemale='" + mCurrentUser.getEmail() +"'";
         BackendlessDataQuery dataQuery = new BackendlessDataQuery();
         dataQuery.setWhereClause(whereClause);
         Backendless.Data.of(BackendlessUser.class).find(dataQuery, new AsyncCallback<BackendlessCollection<BackendlessUser>>() {
