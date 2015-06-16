@@ -150,5 +150,6 @@
         <item>Female</item>
     </string-array>
     <string name="title_activity_activity_sexy_calendar">ActivitySexyCalendar</string>
+    <string name="title_activity_baby_sign">babySign</string>
 
 </resources>

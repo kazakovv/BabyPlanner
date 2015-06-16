@@ -55,6 +55,13 @@
             android:label="@string/app_name"
             android:parentActivityName=".Main" >
         </activity>
+
+        <activity
+            android:name=".UserInterfaces.babySign"
+            android:label="@string/title_activity_baby_sign"
+            android:parentActivityName=".Main">
+        </activity>
+
         <receiver
             android:name=".PushReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >

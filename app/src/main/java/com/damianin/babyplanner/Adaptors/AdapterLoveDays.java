@@ -23,6 +23,7 @@ import com.damianin.babyplanner.R;
 import com.damianin.babyplanner.Statics;
 import com.damianin.babyplanner.UserInterfaces.ActivityChangeSexyStatus;
 import com.damianin.babyplanner.UserInterfaces.ActivitySexyCalendar;
+import com.damianin.babyplanner.UserInterfaces.babySign;
 import com.damianin.babyplanner.dialogs.SetFirstDayOfCycle;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.squareup.picasso.Picasso;
@@ -102,6 +103,7 @@ public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.Contac
                 String cyclePhaseTitle = CycleStage.determineCyclePhase(userToDisplay, mContext);
                 contactViewHolder.vCyclePhase.setText(cyclePhaseTitle);
                 contactViewHolder.vSexyCalendar.setOnClickListener(sexyCalendarOnClick);
+                contactViewHolder.vBabySign.setOnClickListener(babySignOnClick);
 
             }
         //on click za promeniane na statusa za tekushtia potervitel samo
@@ -141,6 +143,7 @@ public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.Contac
                     String cyclePhaseTitle = CycleStage.determineCyclePhase(userToDisplay,mContext);
                     contactViewHolder.vCyclePhase.setText(cyclePhaseTitle);
                     contactViewHolder.vSexyCalendar.setOnClickListener(sexyCalendarOnClick);
+                    contactViewHolder.vBabySign.setOnClickListener(babySignOnClick);
                 } else {
                     //pokazva saobshtenie, che ne si spodelia private days
                     String cyclePhaseTitle = mContext.getResources().getString(R.string.message_does_not_share_private_days);
@@ -220,6 +223,7 @@ public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.Contac
         protected Button vSexyCalendar;
         protected Button vPrivateDays;
         protected TextView vCyclePhase;
+        protected Button vBabySign;
 
         public ContactViewHolder(View v) {
             super(v);
@@ -234,6 +238,10 @@ public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.Contac
             }
             vPrivateDays = (Button) v.findViewById(R.id.showPrivateDaysDialog);
             vCyclePhase = (TextView) v.findViewById(R.id.cyclePhase);
+            vBabySign = (Button) v.findViewById(R.id.babySign);
+            if (vBabySign !=null){
+                vBabySign.setTag(this);
+            }
         }
     }
 
@@ -241,7 +249,19 @@ public class AdapterLoveDays extends RecyclerView.Adapter<AdapterLoveDays.Contac
     Helper
      */
 
-
+    protected View.OnClickListener babySignOnClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ContactViewHolder holder = (ContactViewHolder) v.getTag();
+            int position = holder.getLayoutPosition();
+            int averageLengthOfCycle = (int) cardsToDisplay.get(position).getProperty(Statics.AVERAGE_LENGTH_OF_MENSTRUAL_CYCLE);
+            Date firstDayOfCycle = (Date) cardsToDisplay.get(position).getProperty(Statics.FIRST_DAY_OF_CYCLE);
+            Intent babySignActivity = new Intent(mContext, babySign.class);
+            babySignActivity.putExtra(Statics.AVERAGE_LENGTH_OF_MENSTRUAL_CYCLE,averageLengthOfCycle);
+            babySignActivity.putExtra(Statics.FIRST_DAY_OF_CYCLE,firstDayOfCycle);
+            mContext.startActivity(babySignActivity);
+        }
+    };
 
     protected View.OnClickListener sexyCalendarOnClick =  new View.OnClickListener() {
         @Override
