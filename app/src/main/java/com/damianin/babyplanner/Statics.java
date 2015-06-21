@@ -99,6 +99,9 @@ public class Statics {
     //izpolzva se za reference dali ima chakashti zaiavki za partniori. Ako e true pokazvame buton na main t
     public static Boolean pendingPartnerRequest = false;
 
+    //caluclate zodiac sign
+    public static int NEXT_ZODIAC_SIGN = 11;
+    public static int PREVIOUS_ZODIAC_SIGN = 22;
 
 
     //flags push receiver

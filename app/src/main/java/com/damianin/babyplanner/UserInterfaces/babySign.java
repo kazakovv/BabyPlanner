@@ -19,10 +19,13 @@ public class babySign extends ActionBarActivity {
     protected int averageLengthOfCycle;
     protected Date firstDayOfCycle;
     protected Button nextDateForConceiving;
-    protected TextView nextDateGivingBirth;
-    protected TextView nextConceivingSign;
+    protected Button previousDateForConceiving;
+    protected TextView DateGivingBirth;
+    protected TextView DateConceiving;
+    protected TextView ConceivingSign;
 
     Calendar dateBorn;
+    Calendar dateConceiving;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +39,128 @@ public class babySign extends ActionBarActivity {
         nextDateForConceiving = (Button) findViewById(R.id.buttonNextConceivingDate);
         nextDateForConceiving.setOnClickListener(buttonNextConceivingDate);
 
-        nextDateGivingBirth = (TextView) findViewById(R.id.textViewNextConceivingDate);
-        nextConceivingSign = (TextView) findViewById(R.id.textViewNextConceivingSign);
+        previousDateForConceiving = (Button) findViewById(R.id.buttonPreviousConceivingDate);
+        previousDateForConceiving.setOnClickListener(buttonPreviousConceivingDate);
+        DateConceiving = (TextView) findViewById(R.id.textViewConceivingDate);
+        DateGivingBirth = (TextView) findViewById(R.id.textViewDateGiveBirth);
+        ConceivingSign = (TextView) findViewById(R.id.textViewConceivingSign);
 
-        calculateDateBorn();
+        dateConceiving = calculateDateConceiving();
+        displayNextPossibleBirthStats();
+        //calculateDateBorn();
+    }
+
+
+    //on click listener for next button
+    private View.OnClickListener buttonNextConceivingDate = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            NextAndPreviousZodiacButtonsHelper(Statics.NEXT_ZODIAC_SIGN);
+
+        }
+    };
+
+    //on click listener for previous button
+    private View.OnClickListener buttonPreviousConceivingDate = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            NextAndPreviousZodiacButtonsHelper(Statics.PREVIOUS_ZODIAC_SIGN);
+        }
+    };
+
+    protected void NextAndPreviousZodiacButtonsHelper(int NextOrPreviousZodiacSign ){
+        Calendar dateBorn = null;
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+        // we add the average length of cycle to calculate the next first day of ovulation
+        if(NextOrPreviousZodiacSign == Statics.NEXT_ZODIAC_SIGN) {
+            dateConceiving.add(Calendar.DAY_OF_MONTH, averageLengthOfCycle);
+            dateBorn = calculateDateBorn(dateConceiving, Statics.NEXT_ZODIAC_SIGN);
+        } else if (NextOrPreviousZodiacSign == Statics.PREVIOUS_ZODIAC_SIGN){
+            dateConceiving.add(Calendar.DAY_OF_MONTH, -averageLengthOfCycle);
+            dateBorn = calculateDateBorn(dateConceiving, Statics.NEXT_ZODIAC_SIGN);
+        }
+        String dateToConceive = getResources().getString(R.string.next_date_to_conceive)
+                +" " +  formatter.format(dateConceiving.getTime());
+        DateConceiving.setText(dateToConceive);
+        //we add 48 weeks from the date of conceiving to calculate when the baby will be born
+
+        String nextDateToGiveBirth;
+
+        nextDateToGiveBirth = getResources().getString(R.string.next_date_to_give_birth)
+                + " " + formatter.format(dateBorn.getTime());
+        DateGivingBirth.setText(nextDateToGiveBirth);
+        String zodiacSign = getResources().getString(R.string.sign_of_baby_will_be)
+                + " " + returnZodiacSign(dateBorn);
+        ConceivingSign.setText(zodiacSign);
+    }
+
+    protected Calendar calculateDateConceiving(){
+        Calendar dateConceiving = Calendar.getInstance();
+        dateConceiving = calculateFirstDayOfOvulation();
+
+        return dateConceiving;
+    }
+
+    protected Calendar calculateDateBorn(Calendar dateConceiving, int NextOrPreviousZodiacSign) {
+        Calendar dateToBeBorn = Calendar.getInstance();
+        dateToBeBorn.setTime(dateConceiving.getTime());
+        if(NextOrPreviousZodiacSign == Statics.NEXT_ZODIAC_SIGN) {
+            dateToBeBorn.add(Calendar.WEEK_OF_YEAR, 48);
+        } else if (NextOrPreviousZodiacSign == Statics.PREVIOUS_ZODIAC_SIGN){
+            dateToBeBorn.add(Calendar.WEEK_OF_YEAR, -48);
+        }
+        return dateToBeBorn;
+    }
+
+    protected void displayNextPossibleBirthStats(){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+
+        TextView datesToConceive = (TextView) findViewById(R.id.datesToConceive);
+        TextView datesToGiveBirth = (TextView) findViewById(R.id.datesToGiveBirth);
+        TextView zodiacSignOfBaby = (TextView) findViewById(R.id.zodiacSignOfBaby);
+
+        //set dates to conceive
+        String conceiveDates = getResources().getString(R.string.current_dates_to_conceive);
+        Calendar firstDayOfOvulation = calculateFirstDayOfOvulation();
+        conceiveDates += " " + formatter.format(firstDayOfOvulation.getTime()) + " "
+                + getResources().getString(R.string.and) + " ";
+        firstDayOfOvulation.add(Calendar.DAY_OF_MONTH,4);
+        conceiveDates += formatter.format(firstDayOfOvulation.getTime());
+
+        datesToConceive.setText(conceiveDates);
+
+        //set dates to give birth
+        //substract four days to obtain the initial first day of ovulation
+        firstDayOfOvulation.add(Calendar.DAY_OF_MONTH,-4);
+        Calendar giveBirth = calculateDateBorn(firstDayOfOvulation, Statics.NEXT_ZODIAC_SIGN);
+        String giveBirthMessage = getResources().getString(R.string.baby_sign_next_date_give_birth)
+                + " " + formatter.format(giveBirth.getTime()) + getResources().getString(R.string.and);
+        giveBirth.add(Calendar.DAY_OF_MONTH,4);
+        giveBirthMessage +=  " " + formatter.format(giveBirth.getTime());
+        datesToGiveBirth.setText(giveBirthMessage);
+
+        //set zodiac sign message
+        //substract 4 days to get the inititial first day the baby could be born
+        giveBirth.add(Calendar.DAY_OF_MONTH,-4);
+        String[] signs = new String[4];
+        for(int i = 0; i<4 ; i++){
+            giveBirth.add(Calendar.DAY_OF_MONTH,i);
+            signs[i] = returnZodiacSign(giveBirth);
+        }
+        String babySign = signs[0];
+        String alternativeBabySign = signs[3];
+        String zodiacSignOfBabyMessage;
+        if(babySign == alternativeBabySign ) {
+            zodiacSignOfBabyMessage = getResources().getString(R.string.baby_sign_zodiac)
+                    + " " + babySign;
+            zodiacSignOfBaby.setText(zodiacSignOfBabyMessage);
+        } else {
+            zodiacSignOfBabyMessage = getResources().getString(R.string.baby_sign_zodiac)
+                    + " " + babySign + " " + getResources().getString(R.string.or)
+                    + " " + alternativeBabySign;
+            zodiacSignOfBaby.setText(zodiacSignOfBabyMessage);
+        }
     }
 
     protected Calendar calculateFirstDayOfOvulation(){
@@ -48,60 +169,6 @@ public class babySign extends ActionBarActivity {
         firstDayOfOvulation.add(Calendar.DAY_OF_MONTH, averageLengthOfCycle - 14);
         return firstDayOfOvulation;
     }
-
-    private View.OnClickListener buttonNextConceivingDate = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            //we add 48 weeks every time the button is pressed
-            dateBorn.add(Calendar.WEEK_OF_YEAR, 48);
-            SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
-            String nextDateToGiveBirth;
-            nextDateToGiveBirth = formatter.format(dateBorn.getTime());
-            nextDateGivingBirth.setText(nextDateToGiveBirth);
-            nextConceivingSign.setText(returnZodiacSign(dateBorn));
-        }
-    };
-
-    protected void calculateDateBorn(){
-        TextView firstDate = (TextView) findViewById(R.id.firstDate);
-        TextView secondtDate = (TextView) findViewById(R.id.secondDate);
-        TextView thirdDate = (TextView) findViewById(R.id.thirdDate);
-        TextView fourthDate = (TextView) findViewById(R.id.fourthDate);
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
-        String dateToDisplay;
-
-        dateBorn = Calendar.getInstance();
-        dateBorn = calculateFirstDayOfOvulation();
-        dateBorn.add(Calendar.WEEK_OF_YEAR, 48); //add 48 weeks since pregnancy
-        dateToDisplay = formatter.format(dateBorn.getTime());
-        firstDate.setText(dateToDisplay);
-
-        dateBorn.add(Calendar.DAY_OF_MONTH, 1);
-        dateToDisplay = formatter.format(dateBorn.getTime());
-        secondtDate.setText(dateToDisplay);
-
-        dateBorn.add(Calendar.DAY_OF_MONTH, 1);
-        dateToDisplay = formatter.format(dateBorn.getTime());
-        thirdDate.setText( dateToDisplay);
-
-        dateBorn.add(Calendar.DAY_OF_MONTH, 1);
-        dateToDisplay = formatter.format(dateBorn.getTime());
-        fourthDate.setText( dateToDisplay);
-
-        //test
-        String[] signs = new String[4];
-        for(int i = 0; i<4 ; i++){
-            dateBorn.add(Calendar.DAY_OF_MONTH,-i);
-            signs[i] = returnZodiacSign(dateBorn);
-        }
-        String babySign = signs[0];
-        String alternativeBabySign= signs[3];
-
-        thirdDate.setText(babySign);
-        fourthDate.setText(babySign);
-    }
-
     protected String returnZodiacSign(Calendar dateOfBirth){
         String[] zodiacSigns = new String[]{
                         "Capricorn","Aquarius","Pisces","Aries","Taurus","Gemini",

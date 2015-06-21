@@ -124,6 +124,18 @@
     <string name="push_sexy_status_updated_female">updated her sexy status</string>
     <string name="push_sexy_status_updated_male">updated his sexy status</string>
     <string name="baby_sign">Baby star counter</string>
+    <string name="baby_sign_next_date">Next possible date for conceiving</string>
+    <string name="baby_sign_next_date_give_birth">Next possible date to give birth</string>
+    <string name="baby_sign_zodiac">The sign of your baby will be</string>
+    <string name="baby_next_date_for_conceiving">Next</string>
+    <string name="baby_previous_date_for_conceiving">Previous</string>
+    <string name="current_dates_to_conceive">You can conceive between:</string>
+    <string name="current_dates_to_give_birth">You can give birth between:</string>
+    <string name="next_date_to_conceive">Next date to conceive:</string>
+    <string name="next_date_to_give_birth">Next date to give birth:</string>
+    <string name="sign_of_baby_will_be">The sign of your baby will be:</string>
+    <string name="and">and</string>
+    <string name="or">or</string>
     <!-- NAVIGATION DRAWER -->
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
@@ -131,6 +143,7 @@
     <string name="account_settings_title">Account Settings</string>
     <string name="logout_message">Logging out</string>
     <string name="logout_error">Can\'t log out due to a server error</string>
+    <string name="title_activity_activity_sexy_calendar">ActivitySexyCalendar</string>
 
     <string-array name="navigation_drawer_partners_options">
         <item>Search for Partners</item>
@@ -149,7 +162,6 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
-    <string name="title_activity_activity_sexy_calendar">ActivitySexyCalendar</string>
-    <string name="baby_sign_next_date">Next possible date for conceiving</string>
+
 
 </resources>
