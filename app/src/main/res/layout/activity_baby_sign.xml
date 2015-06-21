@@ -7,10 +7,54 @@
         android:id="@+id/toolbar"
         layout="@layout/app_toolbar" />
 
-    <TextView
-        android:layout_below="@+id/toolbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
 
+    <LinearLayout
+        android:layout_below="@+id/toolbar"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/firstDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="first date" />
+
+        <TextView
+            android:id="@+id/secondDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="second date" />
+
+        <TextView
+            android:id="@+id/thirdDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="third date" />
+
+        <TextView
+            android:id="@+id/fourthDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fourth date" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/buttonNextConceivingDate"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/textViewNextConceivingDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nextConceivingDate" />
+        <TextView
+            android:id="@+id/textViewNextConceivingSign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nextConceivingSign" />
+
+    </LinearLayout>
 </RelativeLayout>
