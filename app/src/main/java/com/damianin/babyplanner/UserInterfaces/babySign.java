@@ -82,16 +82,38 @@ public class babySign extends ActionBarActivity {
         }
         String dateToConceive = getResources().getString(R.string.next_date_to_conceive)
                 +" " +  formatter.format(dateConceiving.getTime());
+
+        dateConceiving.add(Calendar.DAY_OF_MONTH,4);
+        dateToConceive += " " + getResources().getString(R.string.and)
+                + " " + formatter.format(dateConceiving.getTime());
         DateConceiving.setText(dateToConceive);
         //we add 48 weeks from the date of conceiving to calculate when the baby will be born
-
+        //substract four days to ge the initial date of conceiving
+        dateConceiving.add(Calendar.DAY_OF_MONTH,-4);
         String nextDateToGiveBirth;
 
         nextDateToGiveBirth = getResources().getString(R.string.next_date_to_give_birth)
-                + " " + formatter.format(dateBorn.getTime());
+                + " " + formatter.format(dateBorn.getTime())
+                + " " + getResources().getString(R.string.and);
+        dateBorn.add(Calendar.DAY_OF_MONTH,4);
+        nextDateToGiveBirth += " " + formatter.format(dateBorn.getTime());
         DateGivingBirth.setText(nextDateToGiveBirth);
-        String zodiacSign = getResources().getString(R.string.sign_of_baby_will_be)
-                + " " + returnZodiacSign(dateBorn);
+        //calculate zodiac sign
+        //substract four days to obtain the initial date of birth
+        dateBorn.add(Calendar.DAY_OF_MONTH,-4);
+        String zodiacSignFirstOption = returnZodiacSign(dateBorn);
+        //add again four days to calculate the alternative zodiac sign
+        dateBorn.add(Calendar.DAY_OF_MONTH,4);
+        String alternativeZodiacSign = returnZodiacSign(dateBorn);
+        String zodiacSign;
+        if (zodiacSignFirstOption == alternativeZodiacSign) {
+            zodiacSign = getResources().getString(R.string.sign_of_baby_will_be)
+                    + " " + zodiacSignFirstOption;
+        } else {
+            zodiacSign = getResources().getString(R.string.sign_of_baby_will_be)
+                    + " " + zodiacSignFirstOption + " " + getResources().getString(R.string.or) +
+                    " " + alternativeZodiacSign;
+        }
         ConceivingSign.setText(zodiacSign);
     }
 
@@ -135,7 +157,7 @@ public class babySign extends ActionBarActivity {
         firstDayOfOvulation.add(Calendar.DAY_OF_MONTH,-4);
         Calendar giveBirth = calculateDateBorn(firstDayOfOvulation, Statics.NEXT_ZODIAC_SIGN);
         String giveBirthMessage = getResources().getString(R.string.baby_sign_next_date_give_birth)
-                + " " + formatter.format(giveBirth.getTime()) + getResources().getString(R.string.and);
+                + " " + formatter.format(giveBirth.getTime()) + " " + getResources().getString(R.string.and);
         giveBirth.add(Calendar.DAY_OF_MONTH,4);
         giveBirthMessage +=  " " + formatter.format(giveBirth.getTime());
         datesToGiveBirth.setText(giveBirthMessage);
@@ -210,9 +232,9 @@ public class babySign extends ActionBarActivity {
             return zodiacSigns[7];
         } else if((month == 7) && (day >= 23)  || (month == 8) && (day <= 21)) {
             return zodiacSigns[8];
-        } else if((month == 8) && (day >= 22) || (month == 9) && (day <= 21)) {
+        } else if((month == 8) && (day >= 22) || (month == 9) && (day <= 22)) {
             return zodiacSigns[9];
-        } else if((month == 9) && (day >= 24)  || (month == 10) && (day <= 22)) {
+        } else if((month == 9) && (day >= 23)  || (month == 10) && (day <= 22)) {
             return zodiacSigns[10];
         } else if((month == 10) && (day >= 23)  || (month == 11) && (day <= 21)) {
             return zodiacSigns[11];

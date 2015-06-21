@@ -129,11 +129,13 @@
     <string name="baby_sign_zodiac">The sign of your baby will be</string>
     <string name="baby_next_date_for_conceiving">Next</string>
     <string name="baby_previous_date_for_conceiving">Previous</string>
+    <string name="title_baby_star_counter">Based on your current period</string>
+    <string name="baby_star_next_previous_buttons_title">Tap on the buttons to check the next possible days you can get pregnant</string>
     <string name="current_dates_to_conceive">You can conceive between:</string>
     <string name="current_dates_to_give_birth">You can give birth between:</string>
-    <string name="next_date_to_conceive">Next date to conceive:</string>
-    <string name="next_date_to_give_birth">Next date to give birth:</string>
-    <string name="sign_of_baby_will_be">The sign of your baby will be:</string>
+    <string name="next_date_to_conceive">You can conceive between:</string>
+    <string name="next_date_to_give_birth">And you will give birth between:</string>
+    <string name="sign_of_baby_will_be">And the sign of your baby will be:</string>
     <string name="and">and</string>
     <string name="or">or</string>
     <!-- NAVIGATION DRAWER -->

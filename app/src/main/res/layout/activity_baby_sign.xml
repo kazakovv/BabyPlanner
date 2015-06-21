@@ -17,6 +17,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
+
+        <TextView
+            android:id="@+id/title_baby_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/default_padding"
+            android:text="@string/title_baby_star_counter" />
+
         <TextView
             android:id="@+id/datesToConceive"
             android:layout_width="wrap_content"
@@ -37,6 +45,14 @@
 
 
         <!-- Linerar layout for the two buttons -->
+        <TextView
+            android:id="@+id/buttons_tile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/default_padding"
+            android:layout_marginTop="@dimen/default_padding"
+            android:text="@string/baby_star_next_previous_buttons_title" />
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -64,17 +80,17 @@
             android:id="@+id/textViewConceivingDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="nextConceivingDate" />
+            android:text="" />
         <TextView
             android:id="@+id/textViewDateGiveBirth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="nextConceivingDate" />
+            android:text="" />
         <TextView
             android:id="@+id/textViewConceivingSign"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="nextConceivingSign" />
+            android:text="" />
 
     </LinearLayout>
 </RelativeLayout>
