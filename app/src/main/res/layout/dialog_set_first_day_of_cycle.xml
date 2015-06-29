@@ -28,6 +28,7 @@
         android:layout_alignRight="@+id/titleTextView"
         android:layout_centerVertical="true"
         android:calendarViewShown="false"
+        android:datePickerMode="spinner"
         android:focusable="false" />
 
     <TextView
