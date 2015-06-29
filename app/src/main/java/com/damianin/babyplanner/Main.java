@@ -250,7 +250,7 @@ public class Main extends ActionBarActivity  {
             mSwipeToRefreshLayout.setRefreshing(true);
         }
 
-        String whereClause = "mareOrFemale='" + mCurrentUser.getEmail() +"'";
+        String whereClause = "email='" + mCurrentUser.getEmail() +"'";
         BackendlessDataQuery dataQuery = new BackendlessDataQuery();
         dataQuery.setWhereClause(whereClause);
         Backendless.Data.of(BackendlessUser.class).find(dataQuery, new AsyncCallback<BackendlessCollection<BackendlessUser>>() {
@@ -288,8 +288,9 @@ public class Main extends ActionBarActivity  {
                 if(mSwipeToRefreshLayout.isRefreshing()){
                     mSwipeToRefreshLayout.setRefreshing(false);
                 }
+
                 //niama kakvo da napravim
-                Toast.makeText(mContext,"not refreshed...",Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext,R.string.refresh_error,Toast.LENGTH_LONG).show();
 
             }
         });
