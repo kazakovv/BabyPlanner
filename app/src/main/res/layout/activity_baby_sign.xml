@@ -1,8 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-   >
+    android:orientation="vertical">
 
     <include
         android:id="@+id/toolbar"
@@ -11,94 +10,8 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cardList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar" />
-
-    <!--
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/toolbar"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+        android:layout_height="wrap_content"
+         />
 
 
-            <TextView
-                android:id="@+id/title_baby_sign"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/default_padding"
-                android:text="@string/title_baby_star_counter" />
-
-            <TextView
-                android:id="@+id/datesToConceive"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="first date" />
-
-            <TextView
-                android:id="@+id/datesToGiveBirth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="second date" />
-
-            <TextView
-                android:id="@+id/zodiacSignOfBaby"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="third date" />
-
-
-            Linerar layout for the two buttons -->
-    <!--
-        <TextView
-            android:id="@+id/buttons_tile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/default_padding"
-            android:layout_marginTop="@dimen/default_padding"
-            android:text="@string/baby_star_next_previous_buttons_title" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/baby_previous_date_for_conceiving"
-                    android:id="@+id/buttonPreviousConceivingDate"
-                    android:layout_marginRight="@dimen/default_padding"
-                    style="@style/DefaultButton"/>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/baby_next_date_for_conceiving"
-                    android:id="@+id/buttonNextConceivingDate"
-                    style="@style/DefaultButton" />
-
-            </LinearLayout>
-
-
-        <TextView
-            android:id="@+id/textViewConceivingDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-        <TextView
-            android:id="@+id/textViewDateGiveBirth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-        <TextView
-            android:id="@+id/textViewConceivingSign"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-    </LinearLayout>
-    -->
 </LinearLayout>
