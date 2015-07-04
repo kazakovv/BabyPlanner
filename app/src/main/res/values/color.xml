@@ -3,18 +3,18 @@
     <color name="color_white">#ffffff</color>
     <color name="white_opaque_background">#ccffffff</color>
     <color name="color_black">#000000</color>
-    <color name="apptheme_color">#2196F3</color>
+    <color name="apptheme_color">#42A5F5</color>
     <color name="text_color">#ffffff</color>
-    <color name="tabs_color">#2196F3</color>
+    <color name="tabs_color">#9FA8DA</color>
 
-    <color name="tab_accent_color">#FF4081</color>
+    <color name="tab_accent_color">#D50000</color>
 
-    <color name="button_default">#FF4081</color>
-    <color name="button_pressed">#F50057</color>
-    <color name="button_focused">#F50057</color>
+    <color name="button_default">#FF5252</color>
+    <color name="button_pressed">#D50000</color>
+    <color name="button_focused">#FF5252</color>
 
-    <color name="title_message_female">#FF80AB</color>
-    <color name="title_message_male">#C5CAE9</color>
+    <color name="title_message_female">#FF5252</color>
+    <color name="title_message_male">#42A5F5</color>
     <color name="tab_text_color">#ffffff</color>
 
     <color name="second_accent_color">#616161</color>

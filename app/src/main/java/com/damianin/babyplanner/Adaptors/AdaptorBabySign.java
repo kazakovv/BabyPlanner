@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.damianin.babyplanner.R;
@@ -98,7 +99,8 @@ public class AdaptorBabySign extends RecyclerView.Adapter<AdaptorBabySign.Contac
         protected TextView vDatesToConceive;
         protected TextView vDatesToGiveBirth;
         protected TextView vZodiacSignOfBaby;
-
+        protected ImageView vImageSignFirstCard;
+        protected ImageView vImageSignFirstCardAlternative;
 
         //second card
         protected Button vPreviousConceivingDate;
@@ -106,6 +108,8 @@ public class AdaptorBabySign extends RecyclerView.Adapter<AdaptorBabySign.Contac
         protected TextView vSecondDatesToConceive;
         protected TextView vSecondDatesToGiveBirth;
         protected TextView vSecondZodiacSignOfBaby;
+        protected ImageView vImageSignSecondCard;
+        protected ImageView vImageSignSecondCardAlternative;
 
 
 
@@ -119,11 +123,15 @@ public class AdaptorBabySign extends RecyclerView.Adapter<AdaptorBabySign.Contac
             vDatesToConceive = (TextView) v.findViewById(R.id.datesToConceive);
             vDatesToGiveBirth = (TextView) v.findViewById(R.id.datesToGiveBirth);
             vZodiacSignOfBaby = (TextView) v.findViewById(R.id.zodiacSignOfBaby);
+            vImageSignFirstCard = (ImageView) v.findViewById(R.id.image_sign_first_card);
+            vImageSignFirstCardAlternative = (ImageView) v.findViewById(R.id.image_sign_first_card_alternative);
 
             //second card
             vSecondDatesToConceive = (TextView) v.findViewById(R.id.textViewConceivingDate);
             vSecondDatesToGiveBirth = (TextView) v.findViewById(R.id.textViewDateGiveBirth);
             vSecondZodiacSignOfBaby = (TextView) v.findViewById(R.id.textViewConceivingSign);
+            vImageSignSecondCard = (ImageView) v.findViewById(R.id.image_sign_second_card);
+            vImageSignSecondCardAlternative = (ImageView) v.findViewById(R.id.image_sign_second_card_alternative);
 
             vPreviousConceivingDate = (Button) v.findViewById(R.id.buttonPreviousConceivingDate);
             if(vPreviousConceivingDate != null) {
@@ -181,10 +189,17 @@ public class AdaptorBabySign extends RecyclerView.Adapter<AdaptorBabySign.Contac
         if (zodiacSignFirstOption == alternativeZodiacSign) {
             zodiacSign = context.getResources().getString(R.string.sign_of_baby_will_be)
                     + " " + zodiacSignFirstOption;
+            //set the image for the zodiac sign
+            holder.vImageSignSecondCard.setImageResource(imageZodiacSignBaby(zodiacSignFirstOption));
+            holder.vImageSignSecondCardAlternative.setImageResource(0);
         } else {
             zodiacSign = context.getResources().getString(R.string.sign_of_baby_will_be)
                     + " " + zodiacSignFirstOption + " " + context.getResources().getString(R.string.or) +
                     " " + alternativeZodiacSign;
+
+            //set the image for the zodiac sign
+            holder.vImageSignSecondCard.setImageResource(imageZodiacSignBaby(zodiacSignFirstOption));
+            holder.vImageSignSecondCardAlternative.setImageResource(imageZodiacSignBaby(alternativeZodiacSign));
         }
 
         holder.vSecondZodiacSignOfBaby.setText(zodiacSign);
@@ -202,7 +217,7 @@ public class AdaptorBabySign extends RecyclerView.Adapter<AdaptorBabySign.Contac
         firstDayOfOvulation.add(Calendar.DAY_OF_MONTH,4);
         conceiveDates += formatter.format(firstDayOfOvulation.getTime());
 
-            holder.vDatesToConceive.setText(conceiveDates);
+        holder.vDatesToConceive.setText(conceiveDates);
 
 
         //set dates to give birth
@@ -228,11 +243,17 @@ public class AdaptorBabySign extends RecyclerView.Adapter<AdaptorBabySign.Contac
         String babySign = signs[0];
         String alternativeBabySign = signs[3];
         String zodiacSignOfBabyMessage;
+
+
         if(babySign == alternativeBabySign ) {
             zodiacSignOfBabyMessage = context.getResources().getString(R.string.baby_sign_zodiac)
                     + " " + babySign;
 
                 holder.vZodiacSignOfBaby.setText(zodiacSignOfBabyMessage);
+
+                //set up the image
+                holder.vImageSignFirstCard.setImageResource(imageZodiacSignBaby(babySign));
+                holder.vImageSignFirstCardAlternative.setImageResource(0);
 
         } else {
             zodiacSignOfBabyMessage = context.getResources().getString(R.string.baby_sign_zodiac)
@@ -240,8 +261,46 @@ public class AdaptorBabySign extends RecyclerView.Adapter<AdaptorBabySign.Contac
                     + " " + alternativeBabySign;
 
                 holder.vZodiacSignOfBaby.setText(zodiacSignOfBabyMessage);
-
+            //set up the image
+            holder.vImageSignFirstCard.setImageResource(imageZodiacSignBaby(babySign));
+            holder.vImageSignFirstCardAlternative.setImageResource(imageZodiacSignBaby(alternativeBabySign));
         }
+        //show picture of sign
+
+    }
+
+    protected int imageZodiacSignBaby(String babySign) {
+
+
+
+        if (babySign == "Capricorn") {
+            return R.mipmap.capricorn_sign;
+        } else if( babySign == "Aquarius") {
+            return R.mipmap.aquarius_sign;
+        } else if( babySign == "Pisces") {
+            return R.mipmap.pisces_sign;
+        } else if( babySign == "Aries") {
+            return R.mipmap.aries_sign;
+        } else if( babySign == "Taurus") {
+            return R.mipmap.taurus_sign;
+        } else if( babySign == "Gemini") {
+            return R.mipmap.gemini_sign;
+        } else if( babySign == "Cancer") {
+            return R.mipmap.cancer_sign;
+        } else if( babySign == "Leo") {
+            return R.mipmap.leo_sign;
+        } else if( babySign == "Virgo") {
+            return R.mipmap.virgo_sign;
+        } else if( babySign == "Libra") {
+            return R.mipmap.libra_sign;
+        } else if( babySign == "Scorpio") {
+            return R.mipmap.scorpio_sign;
+        } else if( babySign == "Sagittarius") {
+            return R.mipmap.sagittarius_sign;
+        } else {
+            return 0;
+        }
+
     }
 
 
