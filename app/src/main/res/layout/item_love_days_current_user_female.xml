@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:background="@color/title_message_female"
             android:text="Love message for the day"
-            android:textColor="@color/color_black"
+            android:textColor="@color/color_white"
             android:textSize="@dimen/message_title" />
 
         <ImageView

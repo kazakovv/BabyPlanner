@@ -1,10 +1,12 @@
 package com.damianin.babyplanner.dialogs;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +21,9 @@ import com.damianin.babyplanner.DefaultCallback;
 import com.damianin.babyplanner.Main;
 import com.damianin.babyplanner.R;
 import com.damianin.babyplanner.Statics;
+import com.damianin.babyplanner.UserInterfaces.SignUpActivity;
+
+import java.util.Date;
 
 
 /**
@@ -31,6 +36,7 @@ public class GuyOrGirlDialog extends DialogFragment implements DialogInterface.O
 
     protected RadioButton mGuy;
     protected RadioButton mGirl;
+    private OnCompleteListener mListener;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -76,6 +82,10 @@ public class GuyOrGirlDialog extends DialogFragment implements DialogInterface.O
                             currentUser.setProperty(Statics.KEY_MALE_OR_FEMALE, Statics.SEX_FEMALE);
                         }
 
+                        //predavame current user na main za refresh na cardlist
+                        Main activity = (Main) getActivity();
+                        activity.onComplete(currentUser);
+
                         dialog.dismiss();
                         //mainMessage.setText(R.string.main_message_male);
 
@@ -89,7 +99,8 @@ public class GuyOrGirlDialog extends DialogFragment implements DialogInterface.O
                                 super.handleResponse(backendlessUser);
                                 //zapisvame lokalno
                                 Backendless.UserService.setCurrentUser(currentUser);
-                                ((Main)getActivity()).loadCardList(currentUser);
+                                //TODO refresh cards
+                                //((Main)getActivity()).loadCardList(currentUser);
 
                                 Toast.makeText(context,
                                         R.string.selection_saved_successfully, Toast.LENGTH_LONG).show();
@@ -102,6 +113,7 @@ public class GuyOrGirlDialog extends DialogFragment implements DialogInterface.O
                                 String error = backendlessFault.getMessage();
                                 Toast.makeText(context,
                                         R.string.selection_not_saved, Toast.LENGTH_LONG).show();
+
                             }
                         });
                     }//krai na on click ok button
@@ -113,11 +125,17 @@ public class GuyOrGirlDialog extends DialogFragment implements DialogInterface.O
                     }
                 });
         Dialog dialog = builder.create();
-        dialog.setOnShowListener(this);
 
+        dialog.setOnShowListener(this);
         return dialog;
 
     }
+
+    //interface za pass value to SignUp Activity
+    public static interface OnCompleteListener {
+        public abstract void onComplete(BackendlessUser currentUser);
+    }
+
 
     //tova promenia cveta na butona kato se klikne na nego
     @Override
@@ -130,5 +148,16 @@ public class GuyOrGirlDialog extends DialogFragment implements DialogInterface.O
         Button negativeButton = ((AlertDialog) dialog)
                 .getButton(AlertDialog.BUTTON_NEGATIVE);
         negativeButton.setBackgroundResource(R.drawable.custom_dialog_button);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            this.mListener = (OnCompleteListener)activity;
+        }
+        catch (final ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement OnCompleteListener");
+        }
     }
 }

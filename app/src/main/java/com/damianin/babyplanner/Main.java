@@ -53,7 +53,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public class Main extends ActionBarActivity  {
+public class Main extends ActionBarActivity implements GuyOrGirlDialog.OnCompleteListener  {
 
     protected BackendlessUser mCurrentUser;
     protected Toolbar toolbar;
@@ -131,6 +131,7 @@ public class Main extends ActionBarActivity  {
             changeProfilePic.onActivityResult(requestCode,resultCode,data);
 
         }//on activity result za promiana na profile pic
+
 
 
     } //krai na onActivity result
@@ -460,7 +461,12 @@ ON CLICK LISTENER ZA NAVIGATION DRAWER
                     });
         }
     };
-
+    //on complete listener for guy or girl dialog. When the dialog closes the cardlist needs ot be refreshed
+    @Override
+    public void onComplete(BackendlessUser currentUser) {
+        //refresh the list of cards
+        loadCardList(currentUser);
+    }
 
 
     //on click za ostanalite opcii

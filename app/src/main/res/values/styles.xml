@@ -6,7 +6,7 @@
     </style>
     <style name="LoginButton">
         <item name="android:textSize">@dimen/default_button_text_size</item>
-        <item name="android:textColor">@color/color_black</item>
+        <item name="android:textColor">@color/color_white</item>
         <item name="android:background">@drawable/button_login</item>
 
     </style>
@@ -32,7 +32,7 @@
         <item name="android:paddingTop">@dimen/default_padding</item>
         <item name="android:paddingLeft">@dimen/default_padding</item>
         <item name="android:paddingRight">@dimen/default_padding</item>
-        <item name="android:textColor">@color/second_accent_color</item>
+        <item name="android:textColor">@color/color_black</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
         <item name="android:layout_gravity">center</item>
     </style>
