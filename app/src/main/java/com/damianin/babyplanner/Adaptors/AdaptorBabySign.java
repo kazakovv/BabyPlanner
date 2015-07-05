@@ -321,9 +321,9 @@ public class AdaptorBabySign extends RecyclerView.Adapter<AdaptorBabySign.Contac
         Calendar dateToBeBorn = Calendar.getInstance();
         dateToBeBorn.setTime(dateConceiving.getTime());
         if(NextOrPreviousZodiacSign == Statics.NEXT_ZODIAC_SIGN) {
-            dateToBeBorn.add(Calendar.WEEK_OF_YEAR, 48);
+            dateToBeBorn.add(Calendar.DAY_OF_MONTH, 280);
         } else if (NextOrPreviousZodiacSign == Statics.PREVIOUS_ZODIAC_SIGN){
-            dateToBeBorn.add(Calendar.WEEK_OF_YEAR, -48);
+            dateToBeBorn.add(Calendar.DAY_OF_MONTH, -280);
         }
         return dateToBeBorn;
     }

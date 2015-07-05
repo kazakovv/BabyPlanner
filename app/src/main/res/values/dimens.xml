@@ -26,6 +26,9 @@
     <dimen name="list_item_width">100dp</dimen>
     <dimen name="message_list_vertical_margin">8dp</dimen>
 
+    <!-- zodiac signs -->
+    <dimen name="title_zodiac_sign">25sp</dimen>
+    <dimen name="text_zodiac_sign">15sp</dimen>
     <!-- NAVIGATION DRAWER -->
     <dimen name="drawer_header_text_size">16sp</dimen>
     <dimen name="drawer_width">240dp</dimen>

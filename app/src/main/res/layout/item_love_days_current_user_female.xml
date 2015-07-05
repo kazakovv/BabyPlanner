@@ -60,39 +60,33 @@
         <Button
             android:id="@+id/showSexyCalendar"
             style="@style/DefaultButton.SmallText"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
             android:layout_below="@+id/sexyStatus"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/margin_top_button"
-            android:layout_marginLeft="@dimen/default_padding"
             android:text="@string/title_activity_sexy_calendar"
-            android:layout_marginBottom="@dimen/default_padding"
-            android:textAlignment="center" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            />
 
         <Button
             android:id="@+id/showPrivateDaysDialog"
             style="@style/DefaultButton.SmallText"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
+
             android:layout_gravity="center_horizontal"
             android:gravity="center"
-            android:layout_marginRight="@dimen/default_padding"
             android:text="@string/show_private_days_dialog_button"
-            android:layout_marginBottom="@dimen/default_padding"
-            android:layout_alignTop="@+id/showSexyCalendar"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_below="@+id/sexyStatus"
+            android:layout_alignParentLeft="true"
+            />
 
         <Button
             android:id="@+id/babySign"
             style="@style/DefaultButton.SmallText"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
+
+
             android:layout_gravity="center_horizontal"
             android:text="@string/baby_sign"
             android:layout_below="@+id/showSexyCalendar"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

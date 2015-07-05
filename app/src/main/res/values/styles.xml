@@ -47,6 +47,31 @@
         <item name="android:textSize">@dimen/default_button_small_text_size</item>
         <item name="android:textColor">@color/color_white</item>
         <item name="android:background">@drawable/button_custom</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_width">@dimen/button_width</item>
+        <item name="android:layout_marginBottom">@dimen/default_padding</item>
+        <item name="android:layout_marginTop">@dimen/default_padding</item>
+        <item name="android:layout_marginLeft">@dimen/default_padding</item>
+        <item name="android:layout_marginRight">@dimen/default_padding</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    
+    <style name="Zodiac_Sign_Title">
+        <item name="android:textColor">@color/tab_accent_color</item>
+        <item name="android:textSize">@dimen/title_zodiac_sign</item>
+        <item name="android:layout_marginBottom">@dimen/default_padding</item>
+    </style>
+
+    <style name="Zodiac_Sign_Button">
+        <item name="android:textSize">@dimen/default_button_text_size</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:background">@drawable/button_zodiac_sign</item>
+
+    </style>
+
+    <style name="Zodiac_Sign_Text">
+        <item name="android:textSize">@dimen/text_zodiac_sign</item>
+        <item name="android:layout_marginBottom">@dimen/default_padding</item>
     </style>
 
 </resources>

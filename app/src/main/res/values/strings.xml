@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BabyPlanner</string>
+    <string name="app_name">BabyCreator</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -55,8 +55,8 @@
     <string name="share_sexy_calendar_checkbox">Share your Sexy Calendar with your partner(s)</string>
     <string name="fragment_love_days_generic_title">Please update your private days to start using all of LoveSpot\'s functions</string>
     <string name="sexy_status_default">Tap to change your sexy status</string>
-    <string name="title_activity_sexy_calendar">SexyCalendar</string>
-    <string name="show_private_days_dialog_button">Private Days</string>
+    <string name="title_activity_sexy_calendar">Baby Calendar</string>
+    <string name="show_private_days_dialog_button">Baby Days</string>
     <string name="logout_menu_title">Logout</string>
     <string name="menu_camera_alertdialog_title">Change your profile picture</string>
     <string name="camera_choice_take_pic">Take a picture</string>
@@ -124,18 +124,18 @@
     <string name="push_sexy_status_updated_female">updated her sexy status</string>
     <string name="push_sexy_status_updated_male">updated his sexy status</string>
     <string name="baby_sign">Baby star counter</string>
-    <string name="baby_sign_next_date">Next possible date for conceiving</string>
-    <string name="baby_sign_next_date_give_birth">Next possible date to give birth</string>
-    <string name="baby_sign_zodiac">The sign of your baby will be</string>
+    <string name="baby_sign_next_date">1. Next possible date for conceiving</string>
+    <string name="baby_sign_next_date_give_birth">2. Next possible date to give birth</string>
+    <string name="baby_sign_zodiac">3. The sign of your baby will be</string>
     <string name="baby_next_date_for_conceiving">Next</string>
     <string name="baby_previous_date_for_conceiving">Previous</string>
     <string name="title_baby_star_counter">Based on your current period</string>
     <string name="baby_star_next_previous_buttons_title">Tap on the buttons to check the next possible days you can get pregnant</string>
-    <string name="current_dates_to_conceive">You can conceive between:</string>
-    <string name="current_dates_to_give_birth">You can give birth between:</string>
-    <string name="next_date_to_conceive">You can conceive between:</string>
-    <string name="next_date_to_give_birth">And you will give birth between:</string>
-    <string name="sign_of_baby_will_be">And the sign of your baby will be:</string>
+    <string name="current_dates_to_conceive">1. If you conceive between:</string>
+    <string name="current_dates_to_give_birth">2. You will give birth between:</string>
+    <string name="next_date_to_conceive">1. You can conceive between:</string>
+    <string name="next_date_to_give_birth">2. You will give birth between:</string>
+    <string name="sign_of_baby_will_be">3. The sign of your baby will be:</string>
     <string name="and">and</string>
     <string name="or">or</string>
     <!-- NAVIGATION DRAWER -->
