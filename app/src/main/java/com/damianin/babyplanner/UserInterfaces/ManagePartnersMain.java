@@ -33,9 +33,11 @@ public class ManagePartnersMain extends ActionBarActivity implements MaterialTab
         pager.setAdapter(pAdapter);
         //pager.setOffscreenPageLimit(1);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.mipmap.ic_action_back);
+        //toolbar.setNavigationIcon(R.mipmap.ic_action_back);
         //toolbar.setLogo(R.drawable.launch_icon);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         tabHost = (MaterialTabHost) this.findViewById(R.id.materialTabHost);
 
 

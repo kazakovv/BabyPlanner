@@ -35,25 +35,25 @@
     <string name="sexy_status_not_set_male">has not updated his sexy status</string>
 
     //sexy calendar
-    <string name="period_bleeding">Critical zone! Be careful.</string>
-    <string name="period_follicular_phase">Charm and sharper memory!</string>
-    <string name="period_ovulation">Sexy, smiling moments!</string>
-    <string name="period_luteal">Sleepy quiet days</string>
-    <string name="sexyCalendar_needs_updating_message">Sexy Calendar needs to be updated</string>
-    <string name="sexyCalendar_error_message">Sorry, there is a Sexy Calendar error</string>
+    <string name="period_bleeding">Be patient</string>
+    <string name="period_follicular_phase">Dream of your baby</string>
+    <string name="period_ovulation">Make your baby</string>
+    <string name="period_luteal">Keep trying, last chance!</string>
+    <string name="sexyCalendar_needs_updating_message">Baby Calendar needs to be updated</string>
+    <string name="sexyCalendar_error_message">Sorry, there is a Baby Calendar error</string>
 
     <string name="empty_sexy_status">Enter your status first</string>
     <string name="saving_message">Saving...</string>
     <string name="sexy_status_saved_message">Your sexy status was saved</string>
     <string name="general_error_title">Oops!</string>
     <string name="error_updating_status">Error updating your status. Please try again.</string>
-    <string name="calendar_saved">Your Sexy Calendar update was saved</string>
-    <string name="error_sending_calendar_updates">Sorry, there was an error sending the Sexy Calendar update</string>
-    <string name="sending_sexy_calendar_update_to_partners_dialog_message">Sending Sexy Calendar update</string>
-    <string name="message_does_not_share_private_days">Does not want to share her private days</string>
+    <string name="calendar_saved">Your Baby Calendar update was saved</string>
+    <string name="error_sending_calendar_updates">Sorry, there was an error sending the Baby Calendar update</string>
+    <string name="sending_sexy_calendar_update_to_partners_dialog_message">Sending Baby Calendar update</string>
+    <string name="message_does_not_share_private_days">Does not want to share her baby days</string>
     <string name="change_sexy_status_hint">Tell your partner how you feel</string>
-    <string name="share_sexy_calendar_checkbox">Share your Sexy Calendar with your partner(s)</string>
-    <string name="fragment_love_days_generic_title">Please update your private days to start using all of LoveSpot\'s functions</string>
+    <string name="share_sexy_calendar_checkbox">Share your Baby Calendar with your partner(s)</string>
+    <string name="fragment_love_days_generic_title">Please update your baby days to start using all of LoveSpot\'s functions</string>
     <string name="sexy_status_default">Tap to change your sexy status</string>
     <string name="title_activity_sexy_calendar">Baby Calendar</string>
     <string name="show_private_days_dialog_button">Baby Days</string>
@@ -119,7 +119,7 @@
     <string name="toast_username_updated">Your username was updated</string>
     <string name="new_partner_request_push">wants to become your partner</string>
     <string name="new_partner_request">New partner request</string>
-    <string name="push_calendar_update">updated her Sexy Calendar</string>
+    <string name="push_calendar_update">updated her Baby Calendar</string>
     <string name="partner_request_approved">and you are now connected</string>
     <string name="push_sexy_status_updated_female">updated her sexy status</string>
     <string name="push_sexy_status_updated_male">updated his sexy status</string>
@@ -145,7 +145,7 @@
     <string name="account_settings_title">Account Settings</string>
     <string name="logout_message">Logging out</string>
     <string name="logout_error">Can\'t log out due to a server error</string>
-    <string name="title_activity_activity_sexy_calendar">ActivitySexyCalendar</string>
+    <string name="title_activity_activity_sexy_calendar">ActivityBabyCalendar</string>
     <string name="refresh_error">Failed to refresh, try again later</string>
     <string-array name="navigation_drawer_partners_options">
         <item>Search for Partners</item>

@@ -5,7 +5,7 @@
     <color name="color_black">#000000</color>
     <color name="apptheme_color">#42A5F5</color>
     <color name="text_color">#ffffff</color>
-    <color name="tabs_color">#9FA8DA</color>
+    <color name="tabs_color">#42A5F5</color>
 
     <color name="tab_accent_color">#D50000</color>
 
@@ -37,9 +37,9 @@
 
     <color name="title_zodiac_signs">#D50000</color>
     <!-- COLORS FOR CALENDAR -->
-    <color name="calendar_bleeding">#ff0000</color>
+    <color name="calendar_bleeding">#D50000</color>
     <color name="calendar_folicurar">#8BA870</color>
-    <color name="calendar_ovulation">#ff69b4</color>
-    <color name="calendar_luteal">#0000ff</color>
+    <color name="calendar_ovulation">#fded35</color>
+    <color name="calendar_luteal">#42A5F5</color>
 
 </resources>

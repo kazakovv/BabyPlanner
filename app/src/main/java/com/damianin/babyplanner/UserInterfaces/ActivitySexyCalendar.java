@@ -45,7 +45,7 @@ public class ActivitySexyCalendar extends ActionBarActivity {
         cal.add(Calendar.DATE, 7);
         Date greenDate = cal.getTime();
 
-        if (caldroidFragment != null) {
+
             //caldroidFragment.setBackgroundResourceForDate(R.color.apptheme_color,blueDate);
 
             //Load colors for different dates linked to cycle into calendar
@@ -53,7 +53,7 @@ public class ActivitySexyCalendar extends ActionBarActivity {
 
             //caldroidFragment.setTextColorForDate(R.color.color_white, blueDate);
             //caldroidFragment.setTextColorForDate(R.color.color_white, greenDate);
-        }
+
     }
 
     @Override
@@ -62,8 +62,10 @@ public class ActivitySexyCalendar extends ActionBarActivity {
         setContentView(R.layout.activity_sexy_calendar);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.mipmap.ic_action_back);
+        //toolbar.setNavigationIcon(R.mipmap.ic_action_back); //white arrow
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mCurrentUser = Backendless.UserService.CurrentUser();
         emailToSearch = getIntent().getStringExtra(Statics.KEY_EMAIL_CALENDAR);
         firstDayOfCycle = (Date) getIntent().getSerializableExtra(Statics.FIRST_DAY_OF_CYCLE);
@@ -136,7 +138,7 @@ public class ActivitySexyCalendar extends ActionBarActivity {
 
         Calendar dateToChangeColor = Calendar.getInstance();
         int dayToLookup = days;
-        for (int i = 0; i < daysUntilEndOfCycle; i++ ) {
+        for (int i = 0; i <= daysUntilEndOfCycle; i++ ) {
             colorsForDates(dayToLookup,firstDayOfOvulation,lastDayOfOvulation,averageLengthOfCycle,dateToChangeColor.getTime());
             dayToLookup +=1;
             dateToChangeColor.add(Calendar.DAY_OF_MONTH,1);

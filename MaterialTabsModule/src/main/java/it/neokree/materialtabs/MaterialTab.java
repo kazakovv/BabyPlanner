@@ -27,8 +27,8 @@ import at.markushi.ui.RevealColorView;
  */ 
 public class MaterialTab implements View.OnTouchListener {
 
-    private final static int REVEAL_DURATION = 400;
-    private final static int HIDE_DURATION = 500;
+    private final static int REVEAL_DURATION = 4;
+    private final static int HIDE_DURATION = 5;
 	
 	private View completeView;
 	private ImageView icon;
