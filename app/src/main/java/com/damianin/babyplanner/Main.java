@@ -44,6 +44,7 @@ import com.damianin.babyplanner.dialogs.ChangePassword;
 import com.damianin.babyplanner.dialogs.ChangeProfilePic;
 import com.damianin.babyplanner.dialogs.ChangeUsername;
 import com.damianin.babyplanner.dialogs.GuyOrGirlDialog;
+import com.damianin.babyplanner.dialogs.NoPartners;
 import com.damianin.babyplanner.dialogs.SetBirthday;
 import com.damianin.babyplanner.dialogs.SetFirstDayOfCycle;
 import com.squareup.picasso.Picasso;
@@ -106,7 +107,13 @@ public class Main extends ActionBarActivity implements GuyOrGirlDialog.OnComplet
             //updatevame partnirite
             BackendlessHelper.checkAndUpdatePartners(mCurrentUser);
 
+            //proveriavame dali Main activity ne e startirana ot Push receiver i ne e zadaden
+            //flag, koito da prenasochva kam niakoi ekran
+            //proveriavame sashto dali current user ima pone 1 partnior
+            checkIntentFlagsOrNoPartners();
+
         }
+
     }
 
     //refresh listener za updatevane na tova dali ima novi saobstehnia
@@ -200,6 +207,27 @@ public class Main extends ActionBarActivity implements GuyOrGirlDialog.OnComplet
     /*
     HELPER METODI
      */
+
+    protected void checkIntentFlagsOrNoPartners(){
+        //proerivame dali ne sa zadadeni nikakavi flagove ot push receiver
+        Integer flag = getIntent().getFlags();
+        if(flag != null) {
+            if(flag == Statics.FLAG_PARTNER_REQUEST){
+                Intent intent = new Intent(mContext,ManagePartnersMain.class);
+                intent.putExtra(Statics.KEY_PARTNERS_SELECT_TAB,Statics.KEY_PARTNERS_SELECT_PENDING_REQUESTS);
+                startActivity(intent);
+            } else {
+                //proveriava dali current user ima pone 1 partnior. Ako niama izkarva dialog box da
+                //dobavi niakoi
+
+                if(!(mCurrentUser.getProperty(Statics.KEY_PARTNERS) instanceof BackendlessUser[])) {
+                    NoPartners noPartnersDialog = new NoPartners();
+                    noPartnersDialog.show(getSupportFragmentManager(),"no_partners");
+
+                }
+            }
+        }//krai na check za flagove
+    }
 
     protected void navigateToLogin() {
         //preprashta kam login screen

@@ -42,4 +42,6 @@
     <color name="calendar_ovulation">#fded35</color>
     <color name="calendar_luteal">#42A5F5</color>
 
+    <color name="calendar_folicular_text_color">#FFC107</color>
+
 </resources>

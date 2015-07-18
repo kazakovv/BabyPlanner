@@ -138,6 +138,8 @@
     <string name="sign_of_baby_will_be">3. The sign of your baby will be</string>
     <string name="and">and</string>
     <string name="or">or</string>
+    <string name="dialog_no_partners_title">Add a partner</string>
+    <string name="dialog_no_partners_message">Invite a partner and begin using BabyCreator</string>
     <!-- NAVIGATION DRAWER -->
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>

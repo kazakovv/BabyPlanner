@@ -66,7 +66,7 @@ public class PushReceiver extends BackendlessBroadcastReceiver
 
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder( context );
-        notificationBuilder.setSmallIcon( R.mipmap.ic_launcher );
+        notificationBuilder.setSmallIcon( R.mipmap.launcher_icon );
         notificationBuilder.setTicker(tickerText);
         notificationBuilder.setWhen(System.currentTimeMillis());
         notificationBuilder.setContentTitle(contentTitle);
