@@ -3,29 +3,27 @@
     <color name="color_white">#ffffff</color>
     <color name="white_opaque_background">#ccffffff</color>
     <color name="color_black">#000000</color>
-    <color name="apptheme_color">#42A5F5</color>
+    <color name="apptheme_color">#CDDC39</color>
     <color name="text_color">#ffffff</color>
-    <color name="tabs_color">#42A5F5</color>
+    <color name="tabs_color">#CDDC39</color>
 
-    <color name="tab_accent_color">#D50000</color>
+    <color name="tab_accent_color">#1A237E</color>
 
-    <color name="button_default">#FF5252</color>
-    <color name="button_pressed">#D50000</color>
-    <color name="button_focused">#FF5252</color>
+    <color name="button_default">#1A237E</color>
+    <color name="button_pressed">#CDDC39</color>
+    <color name="button_focused">#1A237E</color>
     
     <!-- zodiac sign buttons-->
-    <color name="button_default_zodiac">#42A5F5</color>
-    <color name="button_pressed_zodiac">#0D47A1</color>
-    <color name="button_focused_zodiac">#1E88E5</color>
+    <color name="button_default_zodiac">#1A237E</color>
+    <color name="button_pressed_zodiac">#CDDC39</color>
+    <color name="button_focused_zodiac">#1A237E</color>
 
-    <color name="title_message_female">#FF5252</color>
-    <color name="title_message_male">#42A5F5</color>
+    <color name="title_message_female">#848384</color>
+    <color name="title_message_male">#848384</color>
     <color name="tab_text_color">#ffffff</color>
 
     <color name="second_accent_color">#fded35</color>
 
-    <color name="edit_text_round_default">#F8BBD0</color>
-    <color name="edit_text_round_pressed">#E91E63</color>
 
     <color name="navigation_drawer_group_title">#DADADC</color>
 
