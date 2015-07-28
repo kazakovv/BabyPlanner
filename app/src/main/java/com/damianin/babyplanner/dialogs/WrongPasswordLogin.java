@@ -47,9 +47,11 @@ public class WrongPasswordLogin extends DialogFragment implements DialogInterfac
         Button positiveButton = ((AlertDialog) dialog)
                 .getButton(AlertDialog.BUTTON_POSITIVE);
         positiveButton.setBackgroundResource(R.drawable.custom_dialog_button);
+        positiveButton.setTextColor(getResources().getColor(R.color.color_black));
 
         Button neutralButton = ((AlertDialog) dialog)
                 .getButton(AlertDialog.BUTTON_NEUTRAL);
         neutralButton.setBackgroundResource(R.drawable.custom_dialog_button);
+        neutralButton.setTextColor(getResources().getColor(R.color.color_black));
     }
 }

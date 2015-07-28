@@ -14,10 +14,11 @@ public class Statics {
 
     public static final String KEY_MALE_OR_FEMALE = "maleOrFemale";
 
-
+    public static final String TYPE_PUSH_MESSAGE="pushMessageType";
     public static final String TYPE_IMAGE_MESSAGE = "image";
     public static final String TYPE_CALENDAR_UPDATE = "calendarUpdate";
     public static final String TYPE_PARTNER_REQUEST ="partnerRequest";
+    public static final String TYPE_PUSH_CALENDAR_UPDATE="pushCalendarUpdate";
 
     public static final String KEY_EMAIL_CALENDAR = "emailCalendar";
     public static final String SEX_MALE = "Male";
@@ -107,6 +108,7 @@ public class Statics {
     //flags push receiver
     public static int FLAG_CALENDAR_UPDATE = 1001;
     public static int FLAG_PARTNER_REQUEST = 1002;
+    public static int FLAG_PUSH_CALENDAR_UPDATE = 1003;
 
     //name for partner request intent da pokazva add partner icon if activity is running
     public static String FLAG_INTENT_ADD_PARTNER = "addPartnerRequest";

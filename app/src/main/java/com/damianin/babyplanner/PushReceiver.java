@@ -42,6 +42,7 @@ public class PushReceiver extends BackendlessBroadcastReceiver
         if (messageType.equals(Statics.TYPE_CALENDAR_UPDATE)) {
             notificationIntent = new Intent(context, Main.class);
             notificationIntent.setFlags(Statics.FLAG_CALENDAR_UPDATE);
+
             id=3;
 
         } else if(messageType.equals(Statics.TYPE_PARTNER_REQUEST)){
@@ -52,6 +53,11 @@ public class PushReceiver extends BackendlessBroadcastReceiver
             //send broadcast
             Intent showAddPartnerIcon = new Intent(Statics.FLAG_INTENT_ADD_PARTNER);
             context.sendBroadcast(showAddPartnerIcon);
+        } else if(messageType.equals(Statics.TYPE_PUSH_CALENDAR_UPDATE)){
+            notificationIntent = new Intent(context, Main.class);
+            notificationIntent.putExtra(Statics.TYPE_PUSH_MESSAGE, Statics.FLAG_PUSH_CALENDAR_UPDATE);
+
+            id=5;
         }
 
         else {

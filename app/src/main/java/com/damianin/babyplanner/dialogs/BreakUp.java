@@ -84,9 +84,11 @@ public class BreakUp extends DialogFragment implements DialogInterface.OnShowLis
         Button positiveButton = ((AlertDialog) dialog)
                 .getButton(AlertDialog.BUTTON_POSITIVE);
         positiveButton.setBackgroundResource(R.drawable.custom_dialog_button);
+        positiveButton.setTextColor(getResources().getColor(R.color.color_black));
 
         Button negativeButton = ((AlertDialog) dialog)
                 .getButton(AlertDialog.BUTTON_NEGATIVE);
         negativeButton.setBackgroundResource(R.drawable.custom_dialog_button);
+        negativeButton.setTextColor(getResources().getColor(R.color.color_black));
     }
 }

@@ -40,8 +40,8 @@ public class SendEmailInvitation extends DialogFragment implements DialogInterfa
                     public void onClick(DialogInterface dialog, int which) {
                         //send email
 
-                        String subject = getActivity().getResources().getString(R.string.email_invite_to_lovespot_subject);
-                        String body = getActivity().getResources().getString(R.string.email_invite_to_lovespot_body);
+                        String subject = getActivity().getResources().getString(R.string.email_invite_to_babycreator_subject);
+                        String body = getActivity().getResources().getString(R.string.email_invite_to_babycreator_body);
                         String link_val ="https://play.google.com/store/apps/details?id=com.victor.sexytalk.sexytalk";
                         body = body + "\n" +  "<a href=\"" + link_val + "\">" +
                                 getActivity().getResources().getString(R.string.app_name) + "</a>";
@@ -77,9 +77,11 @@ public class SendEmailInvitation extends DialogFragment implements DialogInterfa
         Button positiveButton = ((AlertDialog) dialog)
                 .getButton(AlertDialog.BUTTON_POSITIVE);
         positiveButton.setBackgroundResource(R.drawable.custom_dialog_button);
+        positiveButton.setTextColor(getResources().getColor(R.color.color_black));
 
         Button negativeButton = ((AlertDialog) dialog)
                 .getButton(AlertDialog.BUTTON_NEGATIVE);
         negativeButton.setBackgroundResource(R.drawable.custom_dialog_button);
+        negativeButton.setTextColor(getResources().getColor(R.color.color_black));
     }
 }

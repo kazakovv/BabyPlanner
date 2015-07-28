@@ -35,11 +35,10 @@
 
     <color name="title_zodiac_signs">#D50000</color>
     <!-- COLORS FOR CALENDAR -->
-    <color name="calendar_bleeding">#D50000</color>
-    <color name="calendar_folicurar">#8BA870</color>
-    <color name="calendar_ovulation">#fded35</color>
-    <color name="calendar_luteal">#42A5F5</color>
+    <color name="calendar_bleeding">#fded35</color>
+    <color name="calendar_folicurar">#F8BBD0</color>
+    <color name="calendar_ovulation">#D81B60</color>
+    <color name="calendar_luteal">#F8BBD0</color>
 
-    <color name="calendar_folicular_text_color">#FFC107</color>
 
 </resources>

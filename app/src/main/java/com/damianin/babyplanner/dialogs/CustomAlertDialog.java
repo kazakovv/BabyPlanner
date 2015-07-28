@@ -60,6 +60,7 @@ public class CustomAlertDialog extends DialogFragment implements DialogInterface
         Button positiveButton = ((AlertDialog) dialog)
                 .getButton(AlertDialog.BUTTON_POSITIVE);
         positiveButton.setBackgroundResource(R.drawable.custom_dialog_button);
+        positiveButton.setTextColor(getResources().getColor(R.color.color_black));
 
        /* Button negativeButton = ((AlertDialog) dialog)
                 .getButton(AlertDialog.BUTTON_NEGATIVE);

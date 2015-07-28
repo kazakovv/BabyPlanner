@@ -75,21 +75,22 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int styleCaldroidWeekdayView=0x7f010007;
     }
     public static final class color {
-        public static int caldroid_333=0x7f050000;
-        public static int caldroid_555=0x7f050001;
-        public static int caldroid_black=0x7f050002;
-        public static int caldroid_darker_gray=0x7f050003;
-        public static int caldroid_gray=0x7f050004;
-        public static int caldroid_holo_blue_dark=0x7f050005;
-        public static int caldroid_holo_blue_light=0x7f050006;
-        public static int caldroid_light_red=0x7f050007;
-        public static int caldroid_lighter_gray=0x7f050008;
-        public static int caldroid_middle_gray=0x7f050009;
-        public static int caldroid_sky_blue=0x7f05000a;
-        public static int caldroid_transparent=0x7f05000b;
-        public static int caldroid_white=0x7f05000c;
-        public static int cell_text_color=0x7f05000d;
-        public static int cell_text_color_dark=0x7f05000e;
+        public static int appThemeColor=0x7f050000;
+        public static int caldroid_333=0x7f050001;
+        public static int caldroid_555=0x7f050002;
+        public static int caldroid_black=0x7f050003;
+        public static int caldroid_darker_gray=0x7f050004;
+        public static int caldroid_gray=0x7f050005;
+        public static int caldroid_holo_blue_dark=0x7f050006;
+        public static int caldroid_holo_blue_light=0x7f050007;
+        public static int caldroid_light_red=0x7f050008;
+        public static int caldroid_lighter_gray=0x7f050009;
+        public static int caldroid_middle_gray=0x7f05000a;
+        public static int caldroid_sky_blue=0x7f05000b;
+        public static int caldroid_transparent=0x7f05000c;
+        public static int caldroid_white=0x7f05000d;
+        public static int cell_text_color=0x7f05000e;
+        public static int cell_text_color_dark=0x7f05000f;
     }
     public static final class drawable {
         public static int calendar_next_arrow=0x7f020000;

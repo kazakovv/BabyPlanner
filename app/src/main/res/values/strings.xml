@@ -36,8 +36,8 @@
 
     //sexy calendar
     <string name="period_bleeding">Be patient</string>
-    <string name="period_follicular_phase">Dream of your baby</string>
-    <string name="period_ovulation">Make your baby</string>
+    <string name="period_follicular_phase">Start trying for a baby</string>
+    <string name="period_ovulation">Go ahead, make your baby</string>
     <string name="period_luteal">Keep trying, last chance!</string>
     <string name="sexyCalendar_needs_updating_message">Baby Calendar needs to be updated</string>
     <string name="sexyCalendar_error_message">Sorry, there is a Baby Calendar error</string>
@@ -53,8 +53,8 @@
     <string name="message_does_not_share_private_days">Does not want to share her baby days</string>
     <string name="change_sexy_status_hint">Tell your partner how you feel</string>
     <string name="share_sexy_calendar_checkbox">Share your Baby Calendar with your partner(s)</string>
-    <string name="fragment_love_days_generic_title">Please update your baby days to start using all of LoveSpot\'s functions</string>
-    <string name="sexy_status_default">Tap to change your sexy status</string>
+    <string name="fragment_love_days_generic_title">Please update your baby days to start using all of BabyCreator\'s functions</string>
+    <string name="sexy_status_default">Tap to change your status</string>
     <string name="title_activity_sexy_calendar">Baby Calendar</string>
     <string name="show_private_days_dialog_button">Baby Days</string>
     <string name="logout_menu_title">Logout</string>
@@ -78,11 +78,11 @@
     <string name="no_pending_partner_requests_message">You have no pending partner requests. Swipe down to refresh.</string>
     <string name="hint_search_partner_by_email">Search partner by email</string>
     <string name="empty_search_field_message">Please enter a valid email address</string>
-    <string name="dialog_invite_partner_join_lovespot_title">Invite your loved one to join LoveSpot</string>
-    <string name="dialog_message_partner_not_joined_lovespot">You partner is not using LoveSpot. Do you want to send an invitation by email?</string>
-    <string name="email_invite_to_lovespot_subject">Join me in LoveSpot</string>
-    <string name="email_invite_to_lovespot_body">Hi honey, \n \n
-        Join me in LoveSpot! Just download LoveSpot from the Google Play or click on the link below.
+    <string name="dialog_invite_partner_join_babycreator_title">Invite your loved one to join BabyCreator</string>
+    <string name="dialog_message_partner_not_joined_babycreator">You partner is not using BabyCreator. Do you want to send an invitation by email?</string>
+    <string name="email_invite_to_babycreator_subject">Join me in BabyCreator</string>
+    <string name="email_invite_to_babycreator_body">Hi honey, \n \n
+        Join me in BabyCreator! Just download BabyCreator from the Google Play or click on the link below.
         I am waiting for you... :)
          </string>
     <string name="toast_no_email_clients_installed">"There are no email clients installed."</string>
@@ -140,6 +140,8 @@
     <string name="or">or</string>
     <string name="dialog_no_partners_title">Add a partner</string>
     <string name="dialog_no_partners_message">Invite a partner and begin using BabyCreator</string>
+    <string name="label_current_period">Current period:</string>
+    <string name="label_your_status">Status:</string>
     <!-- NAVIGATION DRAWER -->
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>

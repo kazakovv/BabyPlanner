@@ -34,12 +34,19 @@
             android:scaleType="fitXY"
             android:src="@mipmap/ic_action_person_black" />
 
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/labelSexyStatus"
+            android:layout_below="@+id/profilePicture"
+            android:text="@string/label_your_status"
+            android:layout_marginLeft="@dimen/default_padding"
+            />
         <TextView
             android:id="@+id/sexyStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/profilePicture"
+            android:layout_below="@+id/labelSexyStatus"
             android:text="@string/sexy_status_default"
             style="@style/SexyStatus" />
 

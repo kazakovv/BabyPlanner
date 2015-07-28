@@ -35,10 +35,19 @@
             android:src="@mipmap/ic_action_person_black" />
 
         <TextView
+            android:id="@+id/label_cyclePhase"
+            android:layout_below="@+id/card_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/default_padding"
+            android:paddingRight="@dimen/default_padding"
+            android:text="@string/label_current_period"/>
+
+        <TextView
             android:id="@+id/cyclePhase"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/card_title"
+            android:layout_below="@+id/label_cyclePhase"
             android:layout_alignParentLeft="true"
             android:paddingLeft="@dimen/default_padding"
             android:paddingRight="@dimen/default_padding"
@@ -50,10 +59,18 @@
             android:layout_toStartOf="@+id/profilePicture" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/labelSexyStatus"
+            android:layout_below="@+id/profilePicture"
+            android:text="@string/label_your_status"
+            android:layout_marginLeft="@dimen/default_padding"
+            />
+        <TextView
             android:id="@+id/sexyStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/profilePicture"
+            android:layout_below="@+id/labelSexyStatus"
             android:text="@string/sexy_status_default"
             style="@style/SexyStatus" />
 

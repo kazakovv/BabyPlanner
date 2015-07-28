@@ -38,6 +38,7 @@ import com.damianin.babyplanner.Adaptors.AdapterNavigationDrawer;
 import com.damianin.babyplanner.Helper.BackendlessHelper;
 import com.damianin.babyplanner.Helper.NavigationDrawerItems;
 import com.damianin.babyplanner.Helper.RoundedTransformation;
+import com.damianin.babyplanner.UserInterfaces.ActivitySexyCalendar;
 import com.damianin.babyplanner.UserInterfaces.LoginActivity;
 import com.damianin.babyplanner.UserInterfaces.ManagePartnersMain;
 import com.damianin.babyplanner.dialogs.ChangePassword;
@@ -210,13 +211,16 @@ public class Main extends ActionBarActivity implements GuyOrGirlDialog.OnComplet
 
     protected void checkIntentFlagsOrNoPartners(){
         //proerivame dali ne sa zadadeni nikakavi flagove ot push receiver
-        Integer flag = getIntent().getFlags();
-        if(flag != null) {
-            if(flag == Statics.FLAG_PARTNER_REQUEST){
+        int pushMessageType = getIntent().getIntExtra(Statics.TYPE_PUSH_MESSAGE, 0);
+
+        if(pushMessageType != 0) {
+            if(pushMessageType == Statics.FLAG_CALENDAR_UPDATE){
                 Intent intent = new Intent(mContext,ManagePartnersMain.class);
                 intent.putExtra(Statics.KEY_PARTNERS_SELECT_TAB,Statics.KEY_PARTNERS_SELECT_PENDING_REQUESTS);
                 startActivity(intent);
-            } else {
+            } else if(pushMessageType == Statics.FLAG_PUSH_CALENDAR_UPDATE) {
+                Toast.makeText(mContext,"Start",Toast.LENGTH_LONG).show();
+            }else {
                 //proveriava dali current user ima pone 1 partnior. Ako niama izkarva dialog box da
                 //dobavi niakoi
 
@@ -226,7 +230,7 @@ public class Main extends ActionBarActivity implements GuyOrGirlDialog.OnComplet
 
                 }
             }
-        }//krai na check za flagove
+        }//krai na check za push message type
     }
 
     protected void navigateToLogin() {
@@ -539,8 +543,10 @@ ON CLICK LISTENER ZA NAVIGATION DRAWER
                     //change sex
                     DialogFragment sexDialog = new GuyOrGirlDialog();
                     sexDialog.show(getFragmentManager(), "Welcome");
-                    mDrawerList.setItemChecked(position, true);
+                    //mDrawerList.setItemChecked(position, true);
                     mDrawerLayout.closeDrawer(mDrawerLinear);
+
+
                     return;
                 case 6:
                     //change date of birth
@@ -549,7 +555,7 @@ ON CLICK LISTENER ZA NAVIGATION DRAWER
                     //setBirthday.setTargetFragment(FragmentEditProfileActivity.this,SET_BIRTHDAY);
 
                     setBirthday.show(getSupportFragmentManager(),"Welcome");
-                    mDrawerList.setItemChecked(position, true);
+                   // mDrawerList.setItemChecked(position, true);
                     mDrawerLayout.closeDrawer(mDrawerLinear);
                     return;
                 case 7:
@@ -559,7 +565,7 @@ ON CLICK LISTENER ZA NAVIGATION DRAWER
                     //changePassword.setTargetFragment(FragmentEditProfileActivity.this, CHANGE_PASSWORD);
                     changePassword.show(getSupportFragmentManager(),"Welcome");
 
-                    mDrawerList.setItemChecked(position, true);
+                    //mDrawerList.setItemChecked(position, true);
                     mDrawerLayout.closeDrawer(mDrawerLinear);
                     return;
                 case 8:
@@ -568,7 +574,7 @@ ON CLICK LISTENER ZA NAVIGATION DRAWER
                     //rezultatat se obrabotva v OnActivityResult v ChangeProfilePic dialog
                     changeProfilePic = new ChangeProfilePic();
                     changeProfilePic.show(getSupportFragmentManager(),"Welcome");
-                    mDrawerList.setItemChecked(position, true);
+                    //mDrawerList.setItemChecked(position, true);
                     mDrawerLayout.closeDrawer(mDrawerLinear);
                     return;
                 case 9:
@@ -576,7 +582,7 @@ ON CLICK LISTENER ZA NAVIGATION DRAWER
                     ChangeUsername changeUsername = new ChangeUsername();
                     //changeUsername.setTargetFragment(FragmentEditProfileActivity.this, CHANGE_USERNAME);
                     changeUsername.show(getSupportFragmentManager(),"Welcome");
-                    mDrawerList.setItemChecked(position, true);
+                    //mDrawerList.setItemChecked(position, true);
                     mDrawerLayout.closeDrawer(mDrawerLinear);
                     return;
 

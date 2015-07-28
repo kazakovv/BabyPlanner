@@ -96,7 +96,7 @@
             android:layout_gravity="start"
             android:layout_weight="4"
             android:background="@color/color_white"
-            android:choiceMode="singleChoice"
+            android:choiceMode="none"
             android:divider="?android:dividerHorizontal"
             android:listSelector="@color/navigation_drawer_group_title"
             android:showDividers="middle" />

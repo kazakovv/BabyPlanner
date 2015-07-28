@@ -3,6 +3,19 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:editTextBackground">@drawable/apptheme_edit_text_holo_light</item>
+
+        <item name="android:textColorHighlight">#99cddc39</item>
+
+        <item name="android:textSelectHandleLeft">@mipmap/apptheme_text_select_handle_left</item>
+
+        <item name="android:textSelectHandleRight">@mipmap/apptheme_text_select_handle_right</item>
+
+        <item name="android:textSelectHandle">@mipmap/apptheme_text_select_handle_middle</item>
+
+        <item name="android:listChoiceIndicatorMultiple">@drawable/apptheme_btn_check_holo_light</item>
+
+        <item name="android:listChoiceIndicatorSingle">@drawable/apptheme_btn_radio_holo_light</item>
     </style>
     <style name="LoginButton">
         <item name="android:textSize">@dimen/default_button_text_size</item>
@@ -29,7 +42,7 @@
     <!-- style za sexy status -->
     <style name="SexyStatus">
 
-        <item name="android:paddingTop">@dimen/default_padding</item>
+
         <item name="android:paddingLeft">@dimen/default_padding</item>
         <item name="android:paddingRight">@dimen/default_padding</item>
         <item name="android:textColor">@color/color_black</item>
