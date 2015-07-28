@@ -56,7 +56,7 @@ public class PushReceiver extends BackendlessBroadcastReceiver
         } else if(messageType.equals(Statics.TYPE_PUSH_CALENDAR_UPDATE)){
             notificationIntent = new Intent(context, Main.class);
             notificationIntent.putExtra(Statics.TYPE_PUSH_MESSAGE, Statics.FLAG_PUSH_CALENDAR_UPDATE);
-
+            notificationIntent.putExtra(Statics.ALERTDIALOG_MESSAGE,contentText);
             id=5;
         }
 

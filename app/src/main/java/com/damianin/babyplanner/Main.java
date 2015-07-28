@@ -44,6 +44,7 @@ import com.damianin.babyplanner.UserInterfaces.ManagePartnersMain;
 import com.damianin.babyplanner.dialogs.ChangePassword;
 import com.damianin.babyplanner.dialogs.ChangeProfilePic;
 import com.damianin.babyplanner.dialogs.ChangeUsername;
+import com.damianin.babyplanner.dialogs.CustomAlertDialog;
 import com.damianin.babyplanner.dialogs.GuyOrGirlDialog;
 import com.damianin.babyplanner.dialogs.NoPartners;
 import com.damianin.babyplanner.dialogs.SetBirthday;
@@ -219,7 +220,19 @@ public class Main extends ActionBarActivity implements GuyOrGirlDialog.OnComplet
                 intent.putExtra(Statics.KEY_PARTNERS_SELECT_TAB,Statics.KEY_PARTNERS_SELECT_PENDING_REQUESTS);
                 startActivity(intent);
             } else if(pushMessageType == Statics.FLAG_PUSH_CALENDAR_UPDATE) {
-                Toast.makeText(mContext,"Start",Toast.LENGTH_LONG).show();
+                String message = getIntent().getStringExtra(Statics.ALERTDIALOG_MESSAGE);
+
+                //display the message from the push notification
+                if(message!=null){
+                    String title = getResources().getString(R.string.dialog_title_daily_push_title);
+
+                    CustomAlertDialog dialogError = new CustomAlertDialog();
+                    Bundle dialogContent = new Bundle();
+                    dialogContent.putString(Statics.ALERTDIALOG_TITLE, title);
+                    dialogContent.putString(Statics.ALERTDIALOG_MESSAGE,message);
+                    dialogError.setArguments(dialogContent);
+                    dialogError.show(getFragmentManager(),"tag_alert_dialog");
+                }
             }else {
                 //proveriava dali current user ima pone 1 partnior. Ako niama izkarva dialog box da
                 //dobavi niakoi

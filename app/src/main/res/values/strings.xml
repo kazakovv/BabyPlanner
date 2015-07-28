@@ -151,6 +151,7 @@
     <string name="logout_error">Can\'t log out due to a server error</string>
     <string name="title_activity_activity_sexy_calendar">ActivityBabyCalendar</string>
     <string name="refresh_error">Failed to refresh, try again later</string>
+    <string name="dialog_title_daily_push_title">You have a message</string>
     <string-array name="navigation_drawer_partners_options">
         <item>Search for Partners</item>
         <item>Pending Partner Requests</item>
