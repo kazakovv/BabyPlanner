@@ -10,4 +10,4 @@
     <item android:drawable="@color/caldroid_lighter_gray" android:state_pressed="true"/>
     <item android:drawable="@color/caldroid_white" android:state_pressed="false"/>
 
-</selector><!-- From: file:/C:/Users/Victor/AndroidStudioProjects/BabyCreator/caldroid/src/main/res/drawable/cell_bg_dark.xml -->
+</selector><!-- From: file:/C:/Users/Victor/Programming/AndroidStudioProjects/BabyCreator/caldroid/src/main/res/drawable/cell_bg_dark.xml -->
